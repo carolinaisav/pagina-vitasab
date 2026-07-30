@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   VITASAB — Sistema de diseño base (Fase 0)
+   Ref: docs/SISTEMA-DISENO.md
+   Esto es el SISTEMA BASE (tipografía, espaciado, targets, movimiento).
+   Dirección de arte ACTIVA: "Cercanía" — blanco cálido + beige + dorado apagado
+   (camel), inspirada en AS Odontología Digital (ajuste de Caro, 2026-07-18).
+   Paleta completa verificada WCAG AA. Los bloques de abajo son exploraciones previas.
+   ========================================================================== */
+
+/* ----------------------------------------------------------------------------
+   Paleta ACTIVA — Dirección 2 "Cercanía": crema cálido + verde salvia (§4).
+   -------------------------------------------------------------------------- */
+:root {
+  --paper: #fbf9f4; /* blanco cálido (ref. AS Odontología) */
+  --ink: #2e2a24; /* café casi negro (13.55:1 ✓) */
+  --ink-soft: #6e6558; /* texto secundario: taupe cálido (5.45:1 bg / 4.74:1 sand ✓) */
+  --accent: #7e6430; /* dorado apagado / camel — color de acción de marca */
+  --accent-foreground: #ffffff; /* texto sobre botón dorado (5.60:1 ✓) */
+  --sand: #f0e9db; /* superficie beige suave: tarjetas y bandas (11.8:1 con ink ✓) */
+  --warm-tint: #f3ecdd; /* realce beige muy suave (urgencias, destacados) */
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+/* Identidad Cercanía: la marca ES el look cálido y claro. No hay tema oscuro
+   (decisión de dirección, 2026-07-18) — evita mantener un segundo tema a medias. */
+
+/* ----------------------------------------------------------------------------
+   Tokens Tailwind v4
+   -------------------------------------------------------------------------- */
+@theme inline {
+  /* Colores base (Dirección 2 "Cercanía") --------------------------------- */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ink-soft: var(--ink-soft);
+  --color-sand: var(--sand);
+  --color-warm-tint: var(--warm-tint);
+
+  /* Familias tipográficas (§1) -------------------------------------------- */
+  /* Familias tipográficas — ref. AS Odontología (Garamond). Cuerpo y títulos son serif. */
+  --font-sans: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SFMono-Regular", monospace;
+
+  /* Escala tipográfica modular (razón 1.25, base 18px) — §1.2 ------------- */
+  /* rem con raíz 16px. Cada token lleva su interlínea emparejada.          */
+  --text-caption: 0.875rem; /* 14px — nota / caption */
+  --text-caption--line-height: 1.5;
+
+  --text-base: 1.125rem; /* 18px — CUERPO */
+  --text-base--line-height: 1.6;
+
+  --text-lead: 1.375rem; /* 22px — entrada / lead */
+  --text-lead--line-height: 1.5;
+
+  --text-h4: 1.75rem; /* 28px */
+  --text-h4--line-height: 1.3;
+
+  --text-h3: 2.1875rem; /* 35px */
+  --text-h3--line-height: 1.2;
+
+  --text-h2: 2.75rem; /* 44px */
+  --text-h2--line-height: 1.15;
+
+  --text-h1: 3.4375rem; /* 55px */
+  --text-h1--line-height: 1.1;
+
+  --text-display: 4.25rem; /* 68px — hero */
+  --text-display--line-height: 1.05;
+}
+
+/* ----------------------------------------------------------------------------
+   Base document
+   -------------------------------------------------------------------------- */
+html {
+  font-size: 100%; /* raíz 16px; el cuerpo escala a 18px vía body */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1.125rem; /* 18px, no 16 (§1.2) */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ----------------------------------------------------------------------------
+   Utilidades
+   -------------------------------------------------------------------------- */
+
+/* Medida de lectura 50–75 caracteres → ~65ch (§1.2). */
+.reading-measure {
+  max-width: 65ch;
+}
+
+/* Target táctil mínimo 44×44 para CTAs de Agendar / Llamar / WhatsApp (§3).
+   Decisión de proyecto por perfil etario; piso WCAG 2.2 AA es 24×24. */
+.tap-target {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* Eyebrow: etiqueta estructural en salvia, mayúsculas espaciadas. Da jerarquía
+   y hace aparecer el acento como detalle, no solo en botones. */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Firma de marca: una palabra en itálica de la serif con un trazo salvia suave
+   debajo. Se usa UNA vez, en el titular (§4.2: "un gesto, bien puesto"). */
+.mark {
+  font-style: italic;
+  position: relative;
+  white-space: nowrap;
+}
+.mark::after {
+  content: "";
+  position: absolute;
+  left: -0.02em;
+  right: -0.02em;
+  bottom: 0.05em;
+  height: 0.16em;
+  background: var(--accent);
+  opacity: 0.4;
+  border-radius: 999px;
+}
+
+/* Formas orgánicas para las fotos (ref. AS Odontología: nada de rectángulos duros). */
+.organic {
+  border-radius: 14% 22% 16% 20% / 18% 14% 20% 16%;
+}
+.organic-alt {
+  border-radius: 20% 16% 22% 14% / 16% 20% 14% 18%;
+}
+
+/* ----------------------------------------------------------------------------
+   Movimiento — prefers-reduced-motion respetado, NO negociable (§5)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+   DIRECCIONES DE COLOR — COMENTADAS. Activar UNA al aprobar dirección (§4).
+   Ratios calculados con script WCAG (no asumidos). Ninguna usa celeste.
+   Para activar: mover el bloque a :root (y su variante dark si aplica) y
+   retirar la paleta neutral base de arriba.
+   ============================================================================
+
+   ---------------------------------------------------------------------------
+   Dirección 1 — "Galería" (editorial oscuro) — activar al aprobar
+   ---------------------------------------------------------------------------
+   :root {
+     --background:      #0E0E0E;  |* fondo oscuro *|
+     --foreground:      #F2EFE9;  |* texto        16.82:1 AA ✓ *|
+     --accent:          #E08A5F;  |* terracota s/ fondo  7.33:1 AA ✓ *|
+     --accent-on:       #0E0E0E;  |* texto oscuro s/ botón terracota 7.33:1 AA ✓ *|
+   }
+
+   ---------------------------------------------------------------------------
+   Dirección 2 — "Cercanía" (cálido luminoso) — activar al aprobar
+   ---------------------------------------------------------------------------
+   :root {
+     --background:      #FBF8F3;  |* fondo cálido claro *|
+     --foreground:      #2A2724;  |* texto        14.02:1 AA ✓ *|
+     --accent:          #3F5E3C;  |* salvia s/ fondo     6.89:1 AA ✓ *|
+     --accent-on:       #FFFFFF;  |* blanco s/ botón salvia 7.30:1 AA ✓ *|
+   }
+
+   ---------------------------------------------------------------------------
+   Dirección 3 — "Índice" (contemporáneo, acento audaz) — activar al aprobar
+   ---------------------------------------------------------------------------
+   :root {
+     --background:      #FCFCFA;  |* fondo casi blanco *|
+     --foreground:      #17181A;  |* texto        17.30:1 AA ✓ *|
+     --accent:          #1F5C3D;  |* verde profundo s/ fondo 7.70:1 AA ✓ *|
+     --accent-on:       #FFFFFF;  |* blanco s/ botón verde   7.91:1 AA ✓ *|
+     --decor-coral:     #FF6B4A;  |* ⚠ 2.74:1 — SOLO gráfico/bloque grande.
+                                     NUNCA texto ni UI pequeña (< 3:1). *|
+   }
+   ============================================================================ */

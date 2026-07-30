@@ -1,0 +1,38 @@
+name: CI
+
+# Controles de calidad desde el día 1 (Fase 1). Corren en cada push y pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint (incluye eslint-plugin-jsx-a11y vía next)
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+  # TODO (Fase 6): agregar auditoría de accesibilidad (axe-core) y Lighthouse
+  # sobre las páginas clave, una vez elegida la dirección de arte final.
+  # axe:
+  #   runs-on: ubuntu-latest
+  #   ...
