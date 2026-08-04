@@ -85,7 +85,7 @@ export default function Home() {
           <Container className="grid items-center gap-10 pt-16 pb-16 sm:pt-24 sm:pb-24 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div>
               <span className="eyebrow">Clínica dental · Las Condes</span>
-              <h1 className="mt-5 font-serif text-h1 leading-[1.04] sm:text-display">
+              <h1 className="mt-5 font-serif text-h2 leading-[1.05] sm:text-h1 sm:leading-[1.04] lg:text-display">
                 Especialistas que se toman el <span className="mark">tiempo</span>.
               </h1>
               <p className="mt-6 max-w-xl text-lead text-ink-soft">

@@ -36,7 +36,7 @@ export function Footer() {
             <li>
               <a
                 href={`tel:${clinic.telephone}`}
-                className="underline-offset-4 hover:underline"
+                className="inline-flex min-h-[44px] items-center underline-offset-4 hover:underline"
               >
                 {clinic.telephone}
               </a>
@@ -46,7 +46,7 @@ export function Footer() {
                 href={whatsappIntentLink("agendar")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline-offset-4 hover:underline"
+                className="inline-flex min-h-[44px] items-center underline-offset-4 hover:underline"
               >
                 Agendar por WhatsApp
               </a>
@@ -64,7 +64,7 @@ export function Footer() {
           <ul className="mt-3 flex flex-col gap-2 text-base">
             {LEGAL.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="underline-offset-4 hover:underline">
+                <Link href={l.href} className="inline-flex min-h-[44px] items-center underline-offset-4 hover:underline">
                   {l.label}
                 </Link>
               </li>

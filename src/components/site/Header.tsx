@@ -64,8 +64,40 @@ export function Header() {
             </CTA>
 
             <details className="relative lg:hidden">
-              <summary className="tap-target cursor-pointer list-none rounded-md text-caption uppercase tracking-[0.1em] [&::-webkit-details-marker]:hidden">
-                Menú
+              <summary
+                aria-label="Menú"
+                className="tap-target cursor-pointer list-none rounded-md text-foreground transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 [&::-webkit-details-marker]:hidden"
+              >
+                {/* ☰ cuando está cerrado, ✕ al abrir (disclosure nativo <details>) */}
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                  className="[details[open]_&]:hidden"
+                >
+                  <line x1="4" y1="7" x2="20" y2="7" />
+                  <line x1="4" y1="12" x2="20" y2="12" />
+                  <line x1="4" y1="17" x2="20" y2="17" />
+                </svg>
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.75"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                  className="hidden [details[open]_&]:block"
+                >
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                  <line x1="6" y1="18" x2="18" y2="6" />
+                </svg>
               </summary>
               <div className="absolute right-0 mt-2 w-64 rounded-2xl bg-sand p-4 shadow-[0_10px_40px_rgba(46,42,36,0.12)]">
                 <nav
