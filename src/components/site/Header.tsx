@@ -31,7 +31,7 @@ export function Header() {
       <div className="mx-auto flex w-full max-w-6xl items-center gap-6 px-6 py-3 sm:px-8 lg:gap-8">
         <Link href="/" aria-label="VITASAB — ir al inicio" className="shrink-0">
           <Image
-            src="/vitasab-logo-10a.png"
+            src="/vitasab-logo-10a-v2.png"
             alt="VITASAB — Implantología & Estética Dental"
             width={914}
             height={388}
