@@ -4,6 +4,7 @@ import "./globals.css";
 import { rootMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/lib/seo/JsonLd";
 import { buildDentistJsonLd } from "@/lib/seo/schema";
+import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
 // Tipografía inspirada en AS Odontología Digital (ambas libres en Google Fonts):
 // Cormorant Garamond para títulos, EB Garamond para el cuerpo.
@@ -42,7 +43,16 @@ export default function RootLayout({
     <html lang="es-CL">
       <body className={`${cormorant.variable} ${ebGaramond.variable} antialiased`}>
         <JsonLd data={buildDentistJsonLd()} />
+        <noscript>
+          {/* Sin JavaScript, el contenido con aparición al scroll se muestra igual. */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: "[data-reveal]{opacity:1 !important;transform:none !important}",
+            }}
+          />
+        </noscript>
         {children}
+        <FloatingWhatsApp />
       </body>
     </html>
   );

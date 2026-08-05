@@ -41,15 +41,25 @@ export default function ComoLlegarPage() {
           <Placeholder>DATO: ¿hay estacionamiento?</Placeholder>
         </p>
 
-        <h2>Mapa</h2>
-        <p>
-          <Placeholder>FOTO/MAPA: mapa embebido pendiente</Placeholder>
-        </p>
-
         <p>
           ¿Prefieres coordinar por mensaje? Escríbenos y te orientamos para llegar.
         </p>
       </Prose>
+
+      <section className="mt-10">
+        <h2 className="font-serif text-h3">Mapa</h2>
+        {/* Google Maps embed (sin API key). NOTA A8: iframe de un tercero (Google) —
+            declararlo en el aviso de cookies / política de privacidad. */}
+        <div className="mt-4 overflow-hidden rounded-[1.5rem] border border-accent/25">
+          <iframe
+            title="Mapa de la ubicación de VITASAB — Rosario Sur 91, Las Condes"
+            src="https://maps.google.com/maps?q=Rosario%20Sur%2091,%20Las%20Condes,%20Santiago,%20Chile&z=16&output=embed"
+            className="block h-[380px] w-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </section>
 
       <div className="mt-8">
         <CTA href={wa} variant="primary">

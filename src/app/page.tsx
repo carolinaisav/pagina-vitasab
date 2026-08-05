@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/ui/CTA";
 import { Placeholder } from "@/components/ui/Placeholder";
+import { Reveal } from "@/components/ui/Reveal";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { whatsappIntentLink } from "@/lib/whatsapp";
@@ -116,84 +117,94 @@ export default function Home() {
 
         {/* Diferenciadores concretos (antídoto al bloque de 4 adjetivos, §4.3) */}
         <section className="mt-16 sm:mt-24">
-          <Container>
-            <div className="grid gap-10 rounded-[2rem] border border-accent/25 bg-sand px-8 py-14 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
-              {[
-                { data: "DATO: años", label: "de experiencia" },
-                { data: "DATO: N° cuotas", label: "cuotas sin interés" },
-                { data: "DATO: sábados", label: "días de atención" },
-                { data: "DATO: metro", label: "a pasos del metro" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <div className="font-serif text-h3 text-accent">
-                    <Placeholder>{s.data}</Placeholder>
+          <Reveal>
+            <Container>
+              <div className="grid gap-10 rounded-[2rem] border border-accent/25 bg-sand px-8 py-14 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
+                {[
+                  { data: "DATO: años", label: "de experiencia" },
+                  { data: "DATO: N° cuotas", label: "cuotas sin interés" },
+                  { data: "DATO: sábados", label: "días de atención" },
+                  { data: "DATO: metro", label: "a pasos del metro" },
+                ].map((s) => (
+                  <div key={s.label}>
+                    <div className="font-serif text-h3 text-accent">
+                      <Placeholder>{s.data}</Placeholder>
+                    </div>
+                    <div className="mt-3 text-base text-ink-soft">{s.label}</div>
                   </div>
-                  <div className="mt-3 text-base text-ink-soft">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </Container>
+                ))}
+              </div>
+            </Container>
+          </Reveal>
         </section>
 
         {/* Categorías — índice curado */}
         <section className="mt-16 sm:mt-24">
-          <Container>
-            <span className="eyebrow">Qué hacemos</span>
-            <h2 className="mt-4 max-w-2xl font-serif text-h2">
-              Cuatro formas de cuidarte, cada una con su especialista.
-            </h2>
-            <div className="mt-10 grid gap-5 sm:grid-cols-2">
-              {CATEGORIES.map((c) => (
-                <CardLink key={c.href} href={c.href} title={c.title} blurb={c.blurb} />
-              ))}
-            </div>
-          </Container>
+          <Reveal>
+            <Container>
+              <span className="eyebrow">Qué hacemos</span>
+              <h2 className="mt-4 max-w-2xl font-serif text-h2">
+                Cuatro formas de cuidarte, cada una con su especialista.
+              </h2>
+              <div className="mt-10 grid gap-5 sm:grid-cols-2">
+                {CATEGORIES.map((c) => (
+                  <CardLink key={c.href} href={c.href} title={c.title} blurb={c.blurb} />
+                ))}
+              </div>
+            </Container>
+          </Reveal>
         </section>
 
-        {/* Urgencias — realce cálido en tono salvia, no alarmista (§5.3) */}
+        {/* Urgencias — realce cálido, no alarmista (§5.3) */}
         <section className="mt-16 sm:mt-24">
-          <Container>
-            <div className="flex flex-col gap-5 rounded-[2rem] border border-accent/30 bg-warm-tint px-8 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-12">
-              <div className="max-w-xl">
-                <span className="eyebrow">Urgencias</span>
-                <h2 className="mt-3 font-serif text-h3">¿Algo que no puede esperar?</h2>
-                <p className="mt-2 text-base text-ink-soft">
-                  Dolor fuerte, un golpe o una hinchazón. Escríbenos o llámanos y te orientamos
-                  de inmediato.
-                </p>
+          <Reveal>
+            <Container>
+              <div className="flex flex-col gap-5 rounded-[2rem] border border-accent/30 bg-warm-tint px-8 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-12">
+                <div className="max-w-xl">
+                  <span className="eyebrow">Urgencias</span>
+                  <h2 className="mt-3 font-serif text-h3">¿Algo que no puede esperar?</h2>
+                  <p className="mt-2 text-base text-ink-soft">
+                    Dolor fuerte, un golpe o una hinchazón. Escríbenos o llámanos y te orientamos
+                    de inmediato.
+                  </p>
+                </div>
+                <CTA href="/urgencias" variant="secondary">
+                  Ver urgencias
+                </CTA>
               </div>
-              <CTA href="/urgencias" variant="secondary">
-                Ver urgencias
-              </CTA>
-            </div>
-          </Container>
+            </Container>
+          </Reveal>
         </section>
 
         {/* Enlaces destacados */}
         <section className="mt-16 sm:mt-24">
-          <Container>
-            <div className="grid gap-5 sm:grid-cols-3">
-              {HIGHLIGHTS.map((h) => (
-                <CardLink key={h.href} href={h.href} title={h.title} blurb={h.blurb} />
-              ))}
-            </div>
-          </Container>
+          <Reveal>
+            <Container>
+              <div className="grid gap-5 sm:grid-cols-3">
+                {HIGHLIGHTS.map((h) => (
+                  <CardLink key={h.href} href={h.href} title={h.title} blurb={h.blurb} />
+                ))}
+              </div>
+            </Container>
+          </Reveal>
         </section>
 
         {/* Cómo llegar — metro primero (§5.3) */}
         <section className="mt-16 sm:mt-24">
-          <Container>
-            <span className="eyebrow">Cómo llegar</span>
-            <h2 className="mt-4 font-serif text-h3">Rosario Sur 91, oficina 303 · Las Condes</h2>
-            <p className="mt-3 max-w-xl text-base text-ink-soft">
-              <Placeholder>DATO: estación de metro</Placeholder> a pocos pasos. Te esperamos.
-            </p>
-            <div className="mt-5">
-              <CTA href="/como-llegar" variant="secondary">
-                Cómo llegar
-              </CTA>
-            </div>
-          </Container>
+          <Reveal>
+            <Container>
+              <span className="eyebrow">Cómo llegar</span>
+              <h2 className="mt-4 font-serif text-h3">Rosario Sur 91, oficina 303 · Las Condes</h2>
+              <p className="mt-3 max-w-xl text-base text-ink-soft">
+                <Placeholder>DATO: estación de metro</Placeholder> a pocos pasos. Te esperamos.
+              </p>
+              <div className="mt-5">
+                <CTA href="/como-llegar" variant="secondary">
+                  Cómo llegar
+                </CTA>
+              </div>
+            </Container>
+          </Reveal>
         </section>
       </main>
       <Footer />

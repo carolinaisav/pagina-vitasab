@@ -4,8 +4,8 @@
    VITASAB — Sistema de diseño base (Fase 0)
    Ref: docs/SISTEMA-DISENO.md
    Esto es el SISTEMA BASE (tipografía, espaciado, targets, movimiento).
-   Dirección de arte ACTIVA: "Cercanía" — blanco cálido + beige + dorado apagado
-   (camel), inspirada en AS Odontología Digital (ajuste de Caro, 2026-07-18).
+   Dirección de arte ACTIVA: paleta de MARCA VITASAB — navy #22343C + teal #2A6A6E
+   sobre claro frío, extraída del logo (pedido de Caro, 2026-07-20).
    Paleta completa verificada WCAG AA. Los bloques de abajo son exploraciones previas.
    ========================================================================== */
 
@@ -13,13 +13,14 @@
    Paleta ACTIVA — Dirección 2 "Cercanía": crema cálido + verde salvia (§4).
    -------------------------------------------------------------------------- */
 :root {
-  --paper: #fbf9f4; /* blanco cálido (ref. AS Odontología) */
-  --ink: #2e2a24; /* café casi negro (13.55:1 ✓) */
-  --ink-soft: #6e6558; /* texto secundario: taupe cálido (5.45:1 bg / 4.74:1 sand ✓) */
-  --accent: #7e6430; /* dorado apagado / camel — color de acción de marca */
-  --accent-foreground: #ffffff; /* texto sobre botón dorado (5.60:1 ✓) */
-  --sand: #f0e9db; /* superficie beige suave: tarjetas y bandas (11.8:1 con ink ✓) */
-  --warm-tint: #f3ecdd; /* realce beige muy suave (urgencias, destacados) */
+  --paper: #f6f7f7; /* claro neutro frío (fondo) */
+  --ink: #22343c; /* navy VITASAB — texto (12.04:1 ✓) */
+  --ink-soft: #4e5a60; /* gris pizarra frío — texto secundario (6.62:1 bg / 6.02:1 sand ✓) */
+  --accent: #2a6a6e; /* teal VITASAB profundo — acción de marca (blanco encima 6.20:1 ✓) */
+  --accent-foreground: #ffffff; /* texto sobre botón teal */
+  --sand: #e9eded; /* superficie clara fría: tarjetas y bandas (ink 10.96:1 ✓) */
+  --warm-tint: #dbe8e8; /* realce teal muy suave (urgencias, destacados) */
+  --warm-accent: #b85440; /* coral cálido — energía puntual, 1-2 botones (blanco 4.79:1 ✓) */
 
   --background: var(--paper);
   --foreground: var(--ink);
@@ -42,6 +43,7 @@
   --color-ink-soft: var(--ink-soft);
   --color-sand: var(--sand);
   --color-warm-tint: var(--warm-tint);
+  --color-warm-accent: var(--warm-accent);
 
   /* Familias tipográficas (§1) -------------------------------------------- */
   /* Familias tipográficas — ref. AS Odontología (Garamond). Cuerpo y títulos son serif. */
