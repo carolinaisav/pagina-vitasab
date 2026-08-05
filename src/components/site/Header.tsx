@@ -11,12 +11,12 @@ const NAV = [
 ] as const;
 
 const NAV_LINK =
-  "font-serif text-base tracking-[0.01em] text-ink transition-colors hover:text-accent";
+  "font-serif text-base tracking-[0.02em] text-ink transition-colors hover:text-accent";
 
 /**
- * Header sticky en una fila: logo a la izquierda + navegación al lado, en serif elegante
- * (Cormorant). Menú móvil con `<details>` nativo (sin JS). El CTA de agendar vive en el
- * botón flotante (§1.4). "Contacto" baja al mapa del final del home (/#contacto).
+ * Header sticky en una franja amplia: logo (fondo transparente) integrado a la izquierda y
+ * la navegación repartida a lo ancho (serif elegante). Menú móvil con `<details>` nativo.
+ * El CTA de agendar vive en el botón flotante. "Contacto" baja al mapa del home (/#contacto).
  */
 export function Header() {
   return (
@@ -28,7 +28,7 @@ export function Header() {
         Saltar al contenido
       </a>
 
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-6 px-6 py-3 sm:px-8 lg:gap-8">
+      <div className="mx-auto flex w-full max-w-6xl items-center gap-10 px-6 py-5 sm:px-8 sm:py-6">
         <Link href="/" aria-label="VITASAB — ir al inicio" className="shrink-0">
           <Image
             src="/vitasab-logo-10a-v2.png"
@@ -36,13 +36,13 @@ export function Header() {
             width={914}
             height={388}
             priority
-            className="h-12 w-auto sm:h-14"
+            className="h-14 w-auto sm:h-16"
           />
         </Link>
 
         <nav
           aria-label="Navegación principal"
-          className="hidden items-center gap-6 lg:flex"
+          className="hidden flex-1 items-center justify-between lg:flex"
         >
           {NAV.map((item) => (
             <Link key={item.href} href={item.href} className={NAV_LINK}>

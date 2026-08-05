@@ -92,7 +92,7 @@ export default function Home() {
       <main id="contenido">
         {/* Hero — nombre + ubicación, con foto orgánica ancha a la derecha (§4.3) */}
         <section>
-          <Container className="grid items-center gap-10 pt-16 pb-16 sm:pt-24 sm:pb-24 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
+          <Container className="grid items-center gap-12 pt-20 pb-20 sm:pt-28 sm:pb-28 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
             <div>
               <h1 className="font-serif text-h2 leading-[1.05] sm:text-h1 sm:leading-[1.04] lg:text-display">
                 Clínica <span className="mark">Vitasab</span>
@@ -123,7 +123,7 @@ export default function Home() {
         </section>
 
         {/* Diferenciadores concretos (antídoto al bloque de 4 adjetivos, §4.3) */}
-        <section className="mt-16 sm:mt-24">
+        <section className="mt-20 sm:mt-32">
           <Reveal>
             <Container>
               <div className="grid gap-10 rounded-[2rem] border border-accent/25 bg-sand px-8 py-14 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
@@ -141,7 +141,7 @@ export default function Home() {
         </section>
 
         {/* Servicios — índice curado */}
-        <section className="mt-16 sm:mt-24">
+        <section className="mt-20 sm:mt-32">
           <Reveal>
             <Container>
               <span className="eyebrow">Servicios</span>
@@ -158,7 +158,7 @@ export default function Home() {
         </section>
 
         {/* Urgencias — realce cálido, no alarmista (§5.3) */}
-        <section className="mt-16 sm:mt-24">
+        <section className="mt-20 sm:mt-32">
           <Reveal>
             <Container>
               <div className="flex flex-col gap-5 rounded-[2rem] border border-accent/30 bg-warm-tint px-8 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-12">
@@ -179,7 +179,7 @@ export default function Home() {
         </section>
 
         {/* Enlaces destacados */}
-        <section className="mt-16 sm:mt-24">
+        <section className="mt-20 sm:mt-32">
           <Reveal>
             <Container>
               <div className="grid gap-5 sm:grid-cols-3">
@@ -192,7 +192,7 @@ export default function Home() {
         </section>
 
         {/* Contacto — mapa + dirección al final (destino de "Contacto" en el menú) */}
-        <section id="contacto" className="mt-16 scroll-mt-28 sm:mt-24">
+        <section id="contacto" className="mt-20 scroll-mt-32 sm:mt-32">
           <Reveal>
             <Container>
               <span className="eyebrow">Contacto</span>

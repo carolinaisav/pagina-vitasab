@@ -4,8 +4,8 @@
    VITASAB — Sistema de diseño base (Fase 0)
    Ref: docs/SISTEMA-DISENO.md
    Esto es el SISTEMA BASE (tipografía, espaciado, targets, movimiento).
-   Dirección de arte ACTIVA: paleta de MARCA VITASAB — navy #22343C + teal #2A6A6E
-   sobre claro frío, extraída del logo (pedido de Caro, 2026-07-20).
+   Dirección de arte ACTIVA: paleta de MARCA VITASAB — navy #22343C + gris pizarra
+   #525A61 sobre claro frío (Caro pidió gris en vez de celeste, 2026-07-20).
    Paleta completa verificada WCAG AA. Los bloques de abajo son exploraciones previas.
    ========================================================================== */
 
@@ -15,11 +15,11 @@
 :root {
   --paper: #f6f7f7; /* claro neutro frío (fondo) */
   --ink: #22343c; /* navy VITASAB — texto (12.04:1 ✓) */
-  --ink-soft: #4e5a60; /* gris pizarra frío — texto secundario (6.62:1 bg / 6.02:1 sand ✓) */
-  --accent: #2a6a6e; /* teal VITASAB profundo — acción de marca (blanco encima 6.20:1 ✓) */
-  --accent-foreground: #ffffff; /* texto sobre botón teal */
+  --ink-soft: #4e5a60; /* gris pizarra frío — texto secundario (6.62:1 bg ✓) */
+  --accent: #525a61; /* gris pizarra — acción y detalles (blanco encima 7.01:1 ✓) */
+  --accent-foreground: #ffffff; /* texto sobre botón gris */
   --sand: #e9eded; /* superficie clara fría: tarjetas y bandas (ink 10.96:1 ✓) */
-  --warm-tint: #dbe8e8; /* realce teal muy suave (urgencias, destacados) */
+  --warm-tint: #e6e9eb; /* realce gris muy suave (urgencias, destacados) */
   --warm-accent: #b85440; /* coral cálido — energía puntual, 1-2 botones (blanco 4.79:1 ✓) */
 
   --background: var(--paper);
