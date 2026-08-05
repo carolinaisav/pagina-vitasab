@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Placeholder } from "@/components/ui/Placeholder";
@@ -17,10 +18,14 @@ export function Footer() {
     <footer className="mt-24 bg-sand">
       <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-serif text-h4">
-            VITASAB<span className="text-accent">.</span>
-          </p>
-          <p className="mt-2 text-base text-ink-soft">
+          <Image
+            src="/vitasab-logo-full.png"
+            alt="VITASAB — Implantología y Estética Dental"
+            width={838}
+            height={397}
+            className="h-auto w-44"
+          />
+          <p className="mt-4 text-base text-ink-soft">
             Clínica dental en Las Condes, Santiago.
           </p>
         </div>

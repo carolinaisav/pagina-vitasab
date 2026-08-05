@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CTA } from "@/components/ui/CTA";
 import { clinic } from "@/lib/seo/clinic";
@@ -37,13 +38,15 @@ export function Header() {
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">
         {/* Fila 1 — logo + acciones */}
         <div className="flex items-center justify-between gap-6 py-4 sm:py-5">
-          <Link href="/" aria-label="VITASAB — ir al inicio" className="leading-tight">
-            <span className="block font-serif text-lead tracking-[0.2em]">
-              VITASAB
-              <span className="text-accent" aria-hidden>
-                .
-              </span>
-            </span>
+          <Link href="/" aria-label="VITASAB — ir al inicio" className="flex flex-col leading-tight">
+            <Image
+              src="/vitasab-logo.png"
+              alt="VITASAB"
+              width={838}
+              height={162}
+              priority
+              className="h-9 w-auto sm:h-10"
+            />
             <span className="mt-1 block text-[0.68rem] uppercase tracking-[0.22em] text-ink-soft">
               Odontología · Las Condes
             </span>

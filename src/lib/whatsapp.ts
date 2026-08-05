@@ -7,7 +7,7 @@
  */
 
 // Formato para wa.me: código de país + número, sin '+', espacios ni signos.
-// ⟦DATO: confirmar que el WhatsApp es el mismo +56 9 6668 2941⟧
+// WhatsApp de la asistente de la consulta: +56 9 6668 2941 (confirmado).
 export const WHATSAPP_NUMBER = "56966682941";
 
 /** Intenciones pre-escritas. Nunca piden datos de salud por el canal (§6.4 regla 12). */

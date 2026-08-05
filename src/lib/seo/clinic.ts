@@ -66,7 +66,7 @@ export interface ClinicData {
   readonly rut: string;
   /** Teléfono en formato E.164. */
   readonly telephone: string;
-  /** WhatsApp — PENDIENTE confirmar si es el mismo teléfono. */
+  /** WhatsApp de la asistente de la consulta (E.164). */
   readonly whatsapp: string | null;
   readonly address: PostalAddressData;
   /** Coordenadas — PENDIENTE. */
@@ -104,7 +104,7 @@ export const clinic: ClinicData = {
   legalName: "Marco Antonio Barthelemiez Molina E.I.R.L.",
   rut: "76.272.502-9",
   telephone: "+56966682941",
-  whatsapp: null, // TODO PENDIENTE: confirmar si WhatsApp es el mismo +56 9 6668 2941.
+  whatsapp: "+56966682941", // Confirmado: WhatsApp de la asistente (+56 9 6668 2941).
   address: {
     streetAddress: "Rosario Sur 91, oficina 303",
     addressLocality: "Las Condes",
