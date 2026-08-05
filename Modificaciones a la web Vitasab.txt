@@ -1,0 +1,15 @@
+cambiar el logo al 10a que està en la carpeta vitasab, y sacar lo que dice de donde dice odontología las condes
+sacar esto al final de la página © 2026 VITASAB · Marco Antonio Barthelemiez Molina E.I.R.L.
+sacar lo que dice al final de la página:
+Empresa
+Marco Antonio Barthelemiez Molina E.I.R.L.
+RUT 76.272.502-9
+Resolución sanitaria SEREMI: ⟦DATO: N° resolución⟧
+
+Eliminar donde dice arriba a la derecha agendar por whatsapp y llamar porque ya està ese botón abajo a la derecha, no quiero que se repita, y en el botón flotante en lugar de decir agendar por whatsapp debe decir Agendar Cita
+
+el logo debe quedar alineado al menú tanto en centrado, como en tamaño y dejarlo más a la izquierda que quede alineado con todo el menú.
+Eliminar todo el texto del menú y cambiarlo por los siguientes textos:  (todo el menù debe ir en la misma tipografía de las palabras del logo estética dental) al lado del logo lo primero que debe decir el menú es Clínica Vitasab. Luego Servicios, Luego Equipo, luego Primera Visita, Alianzas, Contacto. 
+Al final de esta interfaz eliminar todo lo que dice de legales y empresa
+
+hacer más ancho el espacio donde va la foto de la clínica y en el texto a la izquierda poner Clínica Vitasab y dejar puesto Clinica Dental ubicada en Las Condes, a pasos del Metro Manquehue.

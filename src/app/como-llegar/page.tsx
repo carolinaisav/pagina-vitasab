@@ -27,8 +27,7 @@ export default function ComoLlegarPage() {
       <Prose>
         <h2>En metro</h2>
         <p>
-          Estación más cercana:{" "}
-          <Placeholder>DATO: estación de metro más cercana</Placeholder>.
+          Estación más cercana: <strong>Metro Manquehue</strong>, a pocos pasos.
         </p>
 
         <h2>Dirección</h2>

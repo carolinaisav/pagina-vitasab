@@ -7,9 +7,6 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 
-// Hero: "Especialistas que se toman el tiempo" (Caro descartó "Primero conversamos").
-// ⟦PENDIENTE: confirmar titular final; alternativas listadas en docs/contenido/home.md⟧.
-
 const CATEGORIES = [
   {
     href: "/estetica",
@@ -41,7 +38,7 @@ const HIGHLIGHTS = [
   },
   {
     href: "/convenios",
-    title: "Convenios y financiamiento",
+    title: "Alianzas y financiamiento",
     blurb: "Qué cubre tu previsión, con la verdad por delante.",
   },
   {
@@ -50,6 +47,17 @@ const HIGHLIGHTS = [
     blurb: "Especialistas con título verificable en el RNPI.",
   },
 ] as const;
+
+const STATS: readonly {
+  readonly value: string;
+  readonly label: string;
+  readonly pending?: boolean;
+}[] = [
+  { value: "DATO: años", label: "de experiencia", pending: true },
+  { value: "DATO: N° cuotas", label: "cuotas sin interés", pending: true },
+  { value: "DATO: sábados", label: "días de atención", pending: true },
+  { value: "Manquehue", label: "a pasos del metro" },
+];
 
 function CardLink({
   href,
@@ -63,7 +71,7 @@ function CardLink({
   return (
     <Link
       href={href}
-      className="group flex flex-col rounded-[2rem] border border-accent/25 bg-sand p-8 transition-[box-shadow,border-color] hover:border-accent/50 hover:shadow-[0_12px_44px_rgba(46,42,36,0.10)]"
+      className="group flex flex-col rounded-[2rem] border border-accent/25 bg-sand p-8 transition-[box-shadow,border-color] hover:border-accent/50 hover:shadow-[0_12px_44px_rgba(34,52,60,0.10)]"
     >
       <h3 className="font-serif text-h4">{title}</h3>
       <p className="mt-2 text-base text-ink-soft">{blurb}</p>
@@ -81,21 +89,19 @@ export default function Home() {
     <>
       <Header />
       <main id="contenido">
-        {/* Hero — un solo mensaje + foto en forma orgánica a la derecha (§4.3) */}
+        {/* Hero — nombre + ubicación, con foto orgánica ancha a la derecha (§4.3) */}
         <section>
-          <Container className="grid items-center gap-10 pt-16 pb-16 sm:pt-24 sm:pb-24 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <Container className="grid items-center gap-10 pt-16 pb-16 sm:pt-24 sm:pb-24 lg:grid-cols-[1fr_1.25fr] lg:gap-16">
             <div>
-              <span className="eyebrow">Clínica dental · Las Condes</span>
-              <h1 className="mt-5 font-serif text-h2 leading-[1.05] sm:text-h1 sm:leading-[1.04] lg:text-display">
-                Especialistas que se toman el <span className="mark">tiempo</span>.
+              <h1 className="font-serif text-h2 leading-[1.05] sm:text-h1 sm:leading-[1.04] lg:text-display">
+                Clínica <span className="mark">Vitasab</span>
               </h1>
               <p className="mt-6 max-w-xl text-lead text-ink-soft">
-                Te explicamos lo que vemos, en palabras simples, y decides con calma. Sin apuro y
-                sin sorpresas.
+                Clínica dental ubicada en Las Condes, a pasos del Metro Manquehue.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <CTA href={wa} variant="primary">
-                  Agendar por WhatsApp
+                  Agendar Cita
                 </CTA>
                 <CTA href="/primera-visita" variant="secondary">
                   Cómo es tu primera visita
@@ -105,7 +111,7 @@ export default function Home() {
 
             <div
               data-placeholder
-              className="organic mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center overflow-hidden border-2 border-accent/50 bg-sand px-8 text-center lg:max-w-none"
+              className="organic mx-auto flex aspect-[4/3] w-full max-w-md items-center justify-center overflow-hidden border-2 border-accent/50 bg-sand px-8 text-center lg:max-w-none"
             >
               <p className="max-w-xs text-base italic text-ink-soft">
                 Aquí va una foto real de la clínica — el espacio, las manos, el equipo. Nunca
@@ -120,15 +126,10 @@ export default function Home() {
           <Reveal>
             <Container>
               <div className="grid gap-10 rounded-[2rem] border border-accent/25 bg-sand px-8 py-14 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
-                {[
-                  { data: "DATO: años", label: "de experiencia" },
-                  { data: "DATO: N° cuotas", label: "cuotas sin interés" },
-                  { data: "DATO: sábados", label: "días de atención" },
-                  { data: "DATO: metro", label: "a pasos del metro" },
-                ].map((s) => (
+                {STATS.map((s) => (
                   <div key={s.label}>
                     <div className="font-serif text-h3 text-accent">
-                      <Placeholder>{s.data}</Placeholder>
+                      {s.pending ? <Placeholder>{s.value}</Placeholder> : s.value}
                     </div>
                     <div className="mt-3 text-base text-ink-soft">{s.label}</div>
                   </div>
@@ -138,11 +139,11 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Categorías — índice curado */}
+        {/* Servicios — índice curado */}
         <section className="mt-16 sm:mt-24">
           <Reveal>
             <Container>
-              <span className="eyebrow">Qué hacemos</span>
+              <span className="eyebrow">Servicios</span>
               <h2 className="mt-4 max-w-2xl font-serif text-h2">
                 Cuatro formas de cuidarte, cada una con su especialista.
               </h2>
@@ -196,7 +197,7 @@ export default function Home() {
               <span className="eyebrow">Cómo llegar</span>
               <h2 className="mt-4 font-serif text-h3">Rosario Sur 91, oficina 303 · Las Condes</h2>
               <p className="mt-3 max-w-xl text-base text-ink-soft">
-                <Placeholder>DATO: estación de metro</Placeholder> a pocos pasos. Te esperamos.
+                A pasos del Metro Manquehue. Te esperamos.
               </p>
               <div className="mt-5">
                 <CTA href="/como-llegar" variant="secondary">
