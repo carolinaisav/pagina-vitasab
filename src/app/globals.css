@@ -50,7 +50,6 @@
   --font-sans: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
   --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "SFMono-Regular", monospace;
-  --font-nav: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 
   /* Escala tipográfica modular (razón 1.25, base 18px) — §1.2 ------------- */
   /* rem con raíz 16px. Cada token lleva su interlínea emparejada.          */

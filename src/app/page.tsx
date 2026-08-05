@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { whatsappIntentLink } from "@/lib/whatsapp";
+import { clinic } from "@/lib/seo/clinic";
 
 const CATEGORIES = [
   {
@@ -38,7 +39,7 @@ const HIGHLIGHTS = [
   },
   {
     href: "/convenios",
-    title: "Alianzas y financiamiento",
+    title: "Convenios y financiamiento",
     blurb: "Qué cubre tu previsión, con la verdad por delante.",
   },
   {
@@ -190,19 +191,52 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Cómo llegar — metro primero (§5.3) */}
-        <section className="mt-16 sm:mt-24">
+        {/* Contacto — mapa + dirección al final (destino de "Contacto" en el menú) */}
+        <section id="contacto" className="mt-16 scroll-mt-28 sm:mt-24">
           <Reveal>
             <Container>
-              <span className="eyebrow">Cómo llegar</span>
-              <h2 className="mt-4 font-serif text-h3">Rosario Sur 91, oficina 303 · Las Condes</h2>
-              <p className="mt-3 max-w-xl text-base text-ink-soft">
-                A pasos del Metro Manquehue. Te esperamos.
-              </p>
-              <div className="mt-5">
-                <CTA href="/como-llegar" variant="secondary">
-                  Cómo llegar
-                </CTA>
+              <span className="eyebrow">Contacto</span>
+              <h2 className="mt-4 font-serif text-h2">Dónde estamos</h2>
+              <div className="mt-8 grid gap-8 lg:grid-cols-2">
+                <div>
+                  <p className="text-lead">Rosario Sur 91, oficina 303 · Las Condes</p>
+                  <p className="mt-2 text-base text-ink-soft">
+                    A pasos del Metro Manquehue.
+                  </p>
+                  <ul className="mt-6 flex flex-col gap-3 text-base">
+                    <li>
+                      Teléfono:{" "}
+                      <a
+                        href={`tel:${clinic.telephone}`}
+                        className="text-accent underline-offset-4 hover:underline"
+                      >
+                        {clinic.telephone}
+                      </a>
+                    </li>
+                    <li>
+                      Horario: <Placeholder>DATO: horario de atención</Placeholder>
+                    </li>
+                  </ul>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <CTA href={wa} variant="primary">
+                      Agendar Cita
+                    </CTA>
+                    <CTA href="/como-llegar" variant="secondary">
+                      Cómo llegar
+                    </CTA>
+                  </div>
+                </div>
+                <div className="overflow-hidden rounded-[1.5rem] border border-accent/25">
+                  {/* Google Maps embed (sin API key). NOTA A8: iframe de tercero (Google) —
+                      declararlo en el aviso de cookies / política de privacidad. */}
+                  <iframe
+                    title="Mapa de la ubicación de VITASAB — Rosario Sur 91, Las Condes"
+                    src="https://maps.google.com/maps?q=Rosario%20Sur%2091,%20Las%20Condes,%20Santiago,%20Chile&z=16&output=embed"
+                    className="block h-[340px] w-full lg:h-[400px]"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
               </div>
             </Container>
           </Reveal>

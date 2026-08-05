@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, EB_Garamond, Montserrat } from "next/font/google";
+import { Cormorant_Garamond, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { rootMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/lib/seo/JsonLd";
 import { buildDentistJsonLd } from "@/lib/seo/schema";
 import { FloatingWhatsApp } from "@/components/site/FloatingWhatsApp";
 
-// Títulos: Cormorant Garamond · Cuerpo: EB Garamond (libres, ref. AS Odontología).
-// Menú/etiquetas: Montserrat (sans geométrica, como la bajada del logo VITASAB).
+// Títulos y menú: Cormorant Garamond · Cuerpo: EB Garamond (libres, ref. AS Odontología).
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
@@ -20,12 +19,6 @@ const ebGaramond = EB_Garamond({
   subsets: ["latin"],
   weight: ["400", "500"],
   style: ["normal", "italic"],
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -47,9 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es-CL">
-      <body
-        className={`${cormorant.variable} ${ebGaramond.variable} ${montserrat.variable} antialiased`}
-      >
+      <body className={`${cormorant.variable} ${ebGaramond.variable} antialiased`}>
         <JsonLd data={buildDentistJsonLd()} />
         <noscript>
           {/* Sin JavaScript, el contenido con aparición al scroll se muestra igual. */}

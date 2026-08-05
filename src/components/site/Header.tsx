@@ -6,17 +6,17 @@ const NAV = [
   { href: "/servicios", label: "Servicios" },
   { href: "/equipo", label: "Equipo" },
   { href: "/primera-visita", label: "Primera Visita" },
-  { href: "/convenios", label: "Alianzas" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "/alianzas", label: "Alianzas" },
+  { href: "/#contacto", label: "Contacto" },
 ] as const;
 
 const NAV_LINK =
-  "font-nav text-caption uppercase tracking-[0.12em] text-ink transition-colors hover:text-accent";
+  "font-serif text-base tracking-[0.01em] text-ink transition-colors hover:text-accent";
 
 /**
- * Header sticky en una fila: logo a la izquierda + navegación al lado, alineados.
- * El menú usa Montserrat (misma familia geométrica que la bajada del logo). Menú móvil con
- * `<details>` nativo (sin JS). El CTA de agendar vive en el botón flotante (§1.4).
+ * Header sticky en una fila: logo a la izquierda + navegación al lado, en serif elegante
+ * (Cormorant). Menú móvil con `<details>` nativo (sin JS). El CTA de agendar vive en el
+ * botón flotante (§1.4). "Contacto" baja al mapa del final del home (/#contacto).
  */
 export function Header() {
   return (
@@ -28,7 +28,7 @@ export function Header() {
         Saltar al contenido
       </a>
 
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-6 px-6 py-3 sm:px-8 lg:gap-10">
+      <div className="mx-auto flex w-full max-w-6xl items-center gap-6 px-6 py-3 sm:px-8 lg:gap-8">
         <Link href="/" aria-label="VITASAB — ir al inicio" className="shrink-0">
           <Image
             src="/vitasab-logo-10a.png"
@@ -42,7 +42,7 @@ export function Header() {
 
         <nav
           aria-label="Navegación principal"
-          className="hidden items-center gap-7 lg:flex"
+          className="hidden items-center gap-6 lg:flex"
         >
           {NAV.map((item) => (
             <Link key={item.href} href={item.href} className={NAV_LINK}>
@@ -95,7 +95,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="tap-target justify-start font-nav text-base uppercase tracking-[0.1em] text-ink"
+                  className="tap-target justify-start font-serif text-lead text-ink"
                 >
                   {item.label}
                 </Link>

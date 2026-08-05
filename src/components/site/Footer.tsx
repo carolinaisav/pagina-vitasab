@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { clinic } from "@/lib/seo/clinic";
@@ -50,6 +51,15 @@ export function Footer() {
             </li>
           </ul>
         </div>
+      </Container>
+
+      <Container className="border-t border-ink/10 py-5">
+        <Link
+          href="/legales/privacidad"
+          className="text-caption text-ink-soft underline-offset-4 hover:underline"
+        >
+          Política de Privacidad
+        </Link>
       </Container>
     </footer>
   );
