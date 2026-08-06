@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/ui/CTA";
@@ -110,14 +111,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div
-              data-placeholder
-              className="organic mx-auto flex aspect-[4/3] w-full max-w-md items-center justify-center overflow-hidden border-2 border-accent/50 bg-sand px-8 text-center lg:max-w-none"
-            >
-              <p className="max-w-xs text-base italic text-ink-soft">
-                Aquí va una foto real de la clínica — el espacio, las manos, el equipo. Nunca
-                stock.
-              </p>
+            <div className="organic mx-auto aspect-[3/2] w-full max-w-md overflow-hidden border-2 border-accent/50 lg:max-w-none">
+              <Image
+                src="/foto-inicio.png"
+                alt="Recepción de la clínica VITASAB en Las Condes"
+                width={1540}
+                height={1021}
+                priority
+                className="h-full w-full object-cover"
+              />
             </div>
           </Container>
         </section>
