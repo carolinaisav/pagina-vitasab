@@ -92,10 +92,33 @@ export default function Home() {
     <>
       <Header />
       <main id="contenido">
-        {/* Hero — nombre + ubicación, con foto orgánica ancha a la derecha (§4.3) */}
-        <section>
-          <Container className="grid items-center gap-12 pt-20 pb-20 sm:pt-28 sm:pb-28 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
-            <div>
+        {/* Hero — foto a sangre por la derecha con borde izquierdo curvo (ref. AS) */}
+        <section className="relative overflow-hidden">
+          <svg aria-hidden className="pointer-events-none absolute h-0 w-0">
+            <defs>
+              <clipPath id="hero-curve" clipPathUnits="objectBoundingBox">
+                <path d="M0.18 0 C0 0.4, 0 0.6, 0.18 1 L1 1 L1 0 Z" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          {/* Foto (escritorio): a sangre por la derecha, borde izquierdo curvo */}
+          <div
+            className="absolute inset-y-0 right-0 hidden w-1/2 lg:block"
+            style={{ clipPath: "url(#hero-curve)" }}
+          >
+            <Image
+              src="/foto-inicio.png"
+              alt="Recepción de la clínica VITASAB en Las Condes"
+              fill
+              priority
+              sizes="50vw"
+              className="object-cover"
+            />
+          </div>
+
+          <Container className="relative z-10 py-16 sm:py-24 lg:min-h-[600px] lg:py-32">
+            <div className="lg:max-w-[46%]">
               <h1 className="font-serif leading-[0.92]">
                 <span className="block text-h3 text-ink-soft sm:text-h2">Clínica</span>
                 <span className="block text-[3.5rem] text-ink sm:text-[4.5rem] lg:text-[6rem]">
@@ -115,21 +138,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div
-              className="organic mx-auto aspect-[3/2] w-full max-w-lg overflow-hidden lg:max-w-none"
-              style={{
-                WebkitMaskImage:
-                  "radial-gradient(120% 120% at 50% 45%, #000 60%, transparent 92%)",
-                maskImage:
-                  "radial-gradient(120% 120% at 50% 45%, #000 60%, transparent 92%)",
-              }}
-            >
+            {/* Foto (móvil): a lo ancho, abajo */}
+            <div className="mt-10 aspect-[4/3] overflow-hidden rounded-[1.5rem] lg:hidden">
               <Image
                 src="/foto-inicio.png"
                 alt="Recepción de la clínica VITASAB en Las Condes"
                 width={1540}
                 height={1021}
-                priority
+                sizes="100vw"
                 className="h-full w-full object-cover"
               />
             </div>
