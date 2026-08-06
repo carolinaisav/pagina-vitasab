@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/ui/CTA";
 import { Placeholder } from "@/components/ui/Placeholder";
 import { Reveal } from "@/components/ui/Reveal";
+import { IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { whatsappIntentLink } from "@/lib/whatsapp";
@@ -93,12 +94,15 @@ export default function Home() {
       <main id="contenido">
         {/* Hero — nombre + ubicación, con foto orgánica ancha a la derecha (§4.3) */}
         <section>
-          <Container className="grid items-center gap-12 pt-20 pb-20 sm:pt-28 sm:pb-28 lg:grid-cols-[1fr_1.25fr] lg:gap-20">
+          <Container className="grid items-center gap-12 pt-20 pb-20 sm:pt-28 sm:pb-28 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
             <div>
-              <h1 className="font-serif text-h2 leading-[1.05] sm:text-h1 sm:leading-[1.04] lg:text-display">
-                Clínica <span className="mark">Vitasab</span>
+              <h1 className="font-serif leading-[0.92]">
+                <span className="block text-h3 text-ink-soft sm:text-h2">Clínica</span>
+                <span className="block text-[3.5rem] text-ink sm:text-[4.5rem] lg:text-[6rem]">
+                  Vitasab
+                </span>
               </h1>
-              <p className="mt-6 max-w-xl text-lead text-ink-soft">
+              <p className="mt-6 max-w-md font-serif text-h4 text-ink-soft">
                 Clínica dental ubicada en Las Condes, a pasos del Metro Manquehue.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -111,7 +115,15 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="organic mx-auto aspect-[3/2] w-full max-w-md overflow-hidden border-2 border-accent/50 lg:max-w-none">
+            <div
+              className="organic mx-auto aspect-[3/2] w-full max-w-lg overflow-hidden lg:max-w-none"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(120% 120% at 50% 45%, #000 60%, transparent 92%)",
+                maskImage:
+                  "radial-gradient(120% 120% at 50% 45%, #000 60%, transparent 92%)",
+              }}
+            >
               <Image
                 src="/foto-inicio.png"
                 alt="Recepción de la clínica VITASAB en Las Condes"
@@ -201,24 +213,37 @@ export default function Home() {
               <h2 className="mt-4 font-serif text-h2">Dónde estamos</h2>
               <div className="mt-8 grid gap-8 lg:grid-cols-2">
                 <div>
-                  <p className="text-lead">Rosario Sur 91, oficina 303 · Las Condes</p>
-                  <p className="mt-2 text-base text-ink-soft">
-                    A pasos del Metro Manquehue.
-                  </p>
-                  <ul className="mt-6 flex flex-col gap-3 text-base">
-                    <li>
-                      Teléfono:{" "}
+                  <ul className="flex flex-col gap-4 text-base">
+                    <li className="flex items-start gap-3">
+                      <IconLocation className="mt-1 shrink-0 text-accent" />
+                      <span>
+                        Rosario Sur 91, oficina 303 · Las Condes. A pasos del Metro Manquehue.
+                      </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <IconPhone className="shrink-0 text-accent" />
                       <a
                         href={`tel:${clinic.telephone}`}
-                        className="text-accent underline-offset-4 hover:underline"
+                        className="underline-offset-4 hover:underline"
                       >
                         {clinic.telephone}
                       </a>
                     </li>
-                    <li>
-                      Horario: <Placeholder>DATO: horario de atención</Placeholder>
+                    <li className="flex items-center gap-3">
+                      <IconWhatsApp className="shrink-0 text-accent" />
+                      <a
+                        href={wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline-offset-4 hover:underline"
+                      >
+                        Agendar por WhatsApp
+                      </a>
                     </li>
                   </ul>
+                  <p className="mt-4 text-caption text-ink-soft">
+                    Estacionamientos de visita disponibles en el edificio.
+                  </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <CTA href={wa} variant="primary">
                       Agendar Cita
