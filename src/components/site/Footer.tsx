@@ -53,10 +53,8 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-3">
               <IconInstagram className="shrink-0 text-accent" />
-              {/* TODO: reemplazar "#" por la URL del Instagram de la clínica
-                  (p. ej. https://instagram.com/vitasab) para activar el enlace. */}
               <a
-                href="#"
+                href="https://www.instagram.com/clinica.vitasab/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-[44px] items-center underline-offset-4 hover:underline"

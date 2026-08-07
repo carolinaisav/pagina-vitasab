@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const NAV = [
   { href: "/", label: "Clínica Vitasab" },
-  { href: "/servicios", label: "Servicios" },
+  { href: "/#servicios", label: "Servicios" },
   { href: "/equipo", label: "Equipo" },
   { href: "/primera-visita", label: "Primera Visita" },
   { href: "/alianzas", label: "Alianzas" },
