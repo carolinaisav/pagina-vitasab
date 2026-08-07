@@ -10,16 +10,18 @@ import { whatsappIntentLink } from "@/lib/whatsapp";
 import { clinic } from "@/lib/seo/clinic";
 
 const AREAS = [
-  { name: "Ortodoncia invisible", href: "/odontologia#ortodoncia" },
-  { name: "Ortodoncia convencional", href: "/odontologia#ortodoncia" },
-  { name: "Estética dental", href: "/odontologia#estetica-dental" },
-  { name: "Carillas", href: "/odontologia#estetica-dental" },
-  { name: "Bruxismo", href: "/odontologia#bruxismo" },
-  { name: "Rehabilitación", href: "/odontologia#rehabilitacion" },
-  { name: "Odontología general", href: "/odontologia#odontologia-general" },
-  { name: "Implantes dentales", href: "/odontologia#implantes" },
-  { name: "Endodoncia", href: "/odontologia#endodoncia" },
-  { name: "Blanqueamiento dental", href: "/odontologia#estetica-dental" },
+  {
+    href: "/odontologia",
+    title: "Odontología",
+    blurb:
+      "Odontología general, ortodoncia, estética dental, rehabilitación oral, implantes, endodoncia y tratamiento del bruxismo.",
+  },
+  {
+    href: "/estetica-facial",
+    title: "Estética Facial",
+    blurb:
+      "Armonización y estética facial: cuidado de la piel, bioestimulación, toxina botulínica, ácido hialurónico e hilos tensores.",
+  },
 ] as const;
 
 const HIGHLIGHTS = [
@@ -161,24 +163,11 @@ export default function Home() {
               <h2 className="mt-4 max-w-2xl font-serif text-h2">
                 Nuestras áreas de atención
               </h2>
-              <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-10 grid gap-5 sm:grid-cols-2">
                 {AREAS.map((area) => (
-                  <li key={area.name}>
-                    <Link
-                      href={area.href}
-                      className="group flex h-full items-center gap-3 rounded-2xl border border-accent/25 bg-sand px-6 py-5 transition-[border-color,box-shadow] hover:border-accent/50 hover:shadow-[0_10px_36px_rgba(34,52,60,0.08)]"
-                    >
-                      <span
-                        className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent"
-                        aria-hidden
-                      />
-                      <span className="font-serif text-lead group-hover:text-accent">
-                        {area.name}
-                      </span>
-                    </Link>
-                  </li>
+                  <CardLink key={area.href} href={area.href} title={area.title} blurb={area.blurb} />
                 ))}
-              </ul>
+              </div>
             </Container>
           </Reveal>
         </section>
