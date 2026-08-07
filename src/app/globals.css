@@ -154,6 +154,26 @@ body {
   border-radius: 20% 16% 22% 14% / 16% 20% 14% 18%;
 }
 
+/* Entrada del titular del hero: aparece desenfocado y enfoca al cargar
+   (Caro pidió que no se vea estático, 2026-08-07). Se neutraliza solo con
+   prefers-reduced-motion gracias al bloque de abajo. */
+@keyframes focus-in {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+.focus-in {
+  animation: focus-in 1.15s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  will-change: opacity, filter, transform;
+}
+
 /* ----------------------------------------------------------------------------
    Movimiento — prefers-reduced-motion respetado, NO negociable (§5)
    -------------------------------------------------------------------------- */

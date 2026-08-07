@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
+import { IconInstagram, IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
 import { clinic } from "@/lib/seo/clinic";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 
@@ -49,6 +49,19 @@ export function Footer() {
                 className="inline-flex min-h-[44px] items-center underline-offset-4 hover:underline"
               >
                 Agendar por WhatsApp
+              </a>
+            </li>
+            <li className="flex items-center gap-3">
+              <IconInstagram className="shrink-0 text-accent" />
+              {/* TODO: reemplazar "#" por la URL del Instagram de la clínica
+                  (p. ej. https://instagram.com/vitasab) para activar el enlace. */}
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-[44px] items-center underline-offset-4 hover:underline"
+              >
+                Instagram
               </a>
             </li>
           </ul>

@@ -2,35 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/ui/CTA";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { Reveal } from "@/components/ui/Reveal";
-import { IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
+import { IconInstagram, IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 import { clinic } from "@/lib/seo/clinic";
 
-const CATEGORIES = [
-  {
-    href: "/estetica",
-    title: "Estética",
-    blurb: "Para cómo se ve tu sonrisa y tu rostro, sin perder de vista la salud.",
-  },
-  {
-    href: "/restauracion",
-    title: "Restauración",
-    blurb: "Reparar, reponer y sacar el dolor: que tu boca vuelva a funcionar.",
-  },
-  {
-    href: "/prevencion-y-salud",
-    title: "Prevención y salud",
-    blurb: "Revisar, limpiar y cuidar a tiempo.",
-  },
-  {
-    href: "/familia",
-    title: "Familia",
-    blurb: "Atención para todas las edades de la casa.",
-  },
+const AREAS = [
+  "Ortodoncia invisible",
+  "Ortodoncia convencional",
+  "Estética dental",
+  "Carillas",
+  "Bruxismo",
+  "Rehabilitación oral",
+  "Odontología general",
+  "Implantes dentales",
+  "Endodoncia",
+  "Blanqueamiento dental",
 ] as const;
 
 const HIGHLIGHTS = [
@@ -51,15 +40,11 @@ const HIGHLIGHTS = [
   },
 ] as const;
 
-const STATS: readonly {
-  readonly value: string;
-  readonly label: string;
-  readonly pending?: boolean;
-}[] = [
-  { value: "DATO: años", label: "de experiencia", pending: true },
-  { value: "DATO: N° cuotas", label: "cuotas sin interés", pending: true },
-  { value: "DATO: sábados", label: "días de atención", pending: true },
-  { value: "Manquehue", label: "a pasos del metro" },
+const STATS: readonly { readonly value: string; readonly label: string }[] = [
+  { value: "15", label: "años de experiencia" },
+  { value: "Facilidades de pago", label: "con tarjeta de crédito" },
+  { value: "Lunes a Viernes", label: "9.30 a 19.15 hrs" },
+  { value: "Rosario Sur / Apoquindo", label: "a pasos del Metro Manquehue" },
 ];
 
 function CardLink({
@@ -97,7 +82,7 @@ export default function Home() {
           <svg aria-hidden className="pointer-events-none absolute h-0 w-0">
             <defs>
               <clipPath id="hero-curve" clipPathUnits="objectBoundingBox">
-                <path d="M0.18 0 C0 0.4, 0 0.6, 0.18 1 L1 1 L1 0 Z" />
+                <path d="M0.025 0 C0.008 0.4, 0.008 0.6, 0.025 1 L1 1 L1 0 Z" />
               </clipPath>
             </defs>
           </svg>
@@ -119,10 +104,10 @@ export default function Home() {
 
           <Container className="relative z-10 py-16 sm:py-24 lg:min-h-[600px] lg:py-32">
             <div className="lg:max-w-[46%]">
-              <h1 className="font-serif leading-[0.92]">
+              <h1 className="focus-in font-serif leading-[0.92]">
                 <span className="block text-h3 text-ink-soft sm:text-h2">Clínica</span>
                 <span className="block text-[3.5rem] text-ink sm:text-[4.5rem] lg:text-[6rem]">
-                  Vitasab
+                  VITASAB
                 </span>
               </h1>
               <p className="mt-6 max-w-md font-serif text-h4 text-ink-soft">
@@ -159,10 +144,8 @@ export default function Home() {
               <div className="grid gap-10 rounded-[2rem] border border-accent/25 bg-sand px-8 py-14 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
                 {STATS.map((s) => (
                   <div key={s.label}>
-                    <div className="font-serif text-h3 text-accent">
-                      {s.pending ? <Placeholder>{s.value}</Placeholder> : s.value}
-                    </div>
-                    <div className="mt-3 text-base text-ink-soft">{s.label}</div>
+                    <div className="font-serif text-h4 text-accent">{s.value}</div>
+                    <div className="mt-2 text-base text-ink-soft">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -176,13 +159,22 @@ export default function Home() {
             <Container>
               <span className="eyebrow">Servicios</span>
               <h2 className="mt-4 max-w-2xl font-serif text-h2">
-                Cuatro formas de cuidarte, cada una con su especialista.
+                Nuestras áreas de atención
               </h2>
-              <div className="mt-10 grid gap-5 sm:grid-cols-2">
-                {CATEGORIES.map((c) => (
-                  <CardLink key={c.href} href={c.href} title={c.title} blurb={c.blurb} />
+              <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {AREAS.map((area) => (
+                  <li
+                    key={area}
+                    className="flex items-center gap-3 rounded-2xl border border-accent/25 bg-sand px-6 py-5"
+                  >
+                    <span
+                      className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent"
+                      aria-hidden
+                    />
+                    <span className="font-serif text-lead">{area}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </Container>
           </Reveal>
         </section>
@@ -254,6 +246,19 @@ export default function Home() {
                         className="underline-offset-4 hover:underline"
                       >
                         Agendar por WhatsApp
+                      </a>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <IconInstagram className="shrink-0 text-accent" />
+                      {/* TODO: reemplazar "#" por la URL del Instagram de la clínica
+                          (p. ej. https://instagram.com/vitasab) para activar el enlace. */}
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline-offset-4 hover:underline"
+                      >
+                        Instagram
                       </a>
                     </li>
                   </ul>
