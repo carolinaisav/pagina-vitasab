@@ -139,6 +139,93 @@ export default function Home() {
           </Container>
         </section>
 
+        {/* Clínica Vitasab — presentación (destino de "Clínica Vitasab" en el menú) */}
+        <section id="clinica-vitasab" className="mt-16 scroll-mt-32 sm:mt-24">
+          <Reveal>
+            <Container>
+              <div className="max-w-3xl">
+                <span className="eyebrow">Clínica Vitasab</span>
+                <h2 className="mt-4 font-serif text-h2">
+                  Experiencia, especialización y atención personalizada
+                </h2>
+
+                <div className="mt-8 flex flex-col gap-6 text-lead text-ink-soft">
+                  <p>
+                    Vitasab es una{" "}
+                    <strong className="font-semibold text-ink">
+                      clínica boutique especializada en odontología, estética dental y estética
+                      facial
+                    </strong>
+                    , con más de 15 años de trayectoria y una forma de atender centrada en cada
+                    paciente.
+                  </p>
+                  <p>
+                    Contamos con un{" "}
+                    <strong className="font-semibold text-ink">
+                      equipo multidisciplinario de profesionales y especialistas
+                    </strong>{" "}
+                    que trabajan de manera coordinada, permitiéndonos abordar cada caso desde una
+                    mirada integral y desarrollar planes de tratamiento de acuerdo con las
+                    necesidades y objetivos de cada persona.
+                  </p>
+                  <p>
+                    Nuestra propuesta combina{" "}
+                    <strong className="font-semibold text-ink">
+                      experiencia clínica, especialización y tecnología
+                    </strong>
+                    , en un espacio diseñado para ofrecer una atención cercana, personalizada y de
+                    alto estándar.
+                  </p>
+                </div>
+
+                <div className="mt-12 flex flex-col gap-10">
+                  <div>
+                    <h3 className="font-serif text-h3">Una mirada integral</h3>
+                    <p className="mt-3 text-base text-ink-soft">
+                      Entendemos que salud, función y estética están conectadas. Por eso, nuestras
+                      distintas especialidades trabajan en conjunto cuando un tratamiento lo
+                      requiere, desde la prevención y el cuidado de la salud bucal hasta
+                      procedimientos de rehabilitación, implantología, estética dental y armonización
+                      facial.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-h3">Una clínica boutique</h3>
+                    <p className="mt-3 text-base text-ink-soft">
+                      Para nosotros, ser una clínica boutique significa privilegiar una atención más
+                      personalizada, cuidando tanto la calidad del tratamiento como la experiencia de
+                      cada paciente.
+                    </p>
+                    <p className="mt-4 text-base text-ink-soft">
+                      Nos importa escuchar, evaluar con detalle y explicar las distintas alternativas
+                      antes de comenzar. Cada tratamiento parte de un diagnóstico y una planificación
+                      individual, respetando las características, necesidades y expectativas de quien
+                      nos consulta.
+                    </p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-h3">Más de 15 años cuidando a nuestros pacientes</h3>
+                    <p className="mt-3 text-base text-ink-soft">
+                      Nuestra trayectoria nos ha permitido construir una práctica basada en la
+                      experiencia, la confianza y el trabajo de un equipo especializado.
+                    </p>
+                    <p className="mt-4 text-base text-ink-soft">
+                      En Vitasab buscamos que cada paciente encuentre en un mismo lugar las distintas
+                      especialidades que necesita, acompañado por profesionales que trabajan con un
+                      objetivo común:{" "}
+                      <strong className="font-semibold text-ink">
+                        cuidar su salud y lograr resultados funcionales, armónicos y naturales.
+                      </strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Container>
+          </Reveal>
+        </section>
+
         {/* Diferenciadores concretos (antídoto al bloque de 4 adjetivos, §4.3) */}
         <section className="mt-20 sm:mt-32">
           <Reveal>
@@ -155,12 +242,11 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Servicios — índice curado (destino de "Servicios" en el menú) */}
+        {/* Áreas de atención — índice a las dos páginas de servicios */}
         <section id="servicios" className="mt-20 scroll-mt-32 sm:mt-32">
           <Reveal>
             <Container>
-              <span className="eyebrow">Servicios</span>
-              <h2 className="mt-4 max-w-2xl font-serif text-h2">
+              <h2 className="max-w-2xl font-serif text-h2">
                 Nuestras áreas de atención
               </h2>
               <div className="mt-10 grid gap-5 sm:grid-cols-2">
