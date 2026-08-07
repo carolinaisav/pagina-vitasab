@@ -30,6 +30,9 @@ const specialtySlugs: readonly string[] = [
 
 const routes: readonly RouteConfig[] = [
   { path: "/", priority: 1.0, changeFrequency: "weekly" },
+  // Páginas de servicios del menú principal.
+  { path: "/odontologia", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/estetica-facial", priority: 0.9, changeFrequency: "monthly" },
   // 4 categorías paraguas.
   { path: "/estetica", priority: 0.8, changeFrequency: "monthly" },
   { path: "/restauracion", priority: 0.8, changeFrequency: "monthly" },

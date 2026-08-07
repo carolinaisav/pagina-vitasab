@@ -10,16 +10,16 @@ import { whatsappIntentLink } from "@/lib/whatsapp";
 import { clinic } from "@/lib/seo/clinic";
 
 const AREAS = [
-  "Ortodoncia invisible",
-  "Ortodoncia convencional",
-  "Estética dental",
-  "Carillas",
-  "Bruxismo",
-  "Rehabilitación",
-  "Odontología general",
-  "Implantes dentales",
-  "Endodoncia",
-  "Blanqueamiento dental",
+  { name: "Ortodoncia invisible", href: "/odontologia#ortodoncia" },
+  { name: "Ortodoncia convencional", href: "/odontologia#ortodoncia" },
+  { name: "Estética dental", href: "/odontologia#estetica-dental" },
+  { name: "Carillas", href: "/odontologia#estetica-dental" },
+  { name: "Bruxismo", href: "/odontologia#bruxismo" },
+  { name: "Rehabilitación", href: "/odontologia#rehabilitacion" },
+  { name: "Odontología general", href: "/odontologia#odontologia-general" },
+  { name: "Implantes dentales", href: "/odontologia#implantes" },
+  { name: "Endodoncia", href: "/odontologia#endodoncia" },
+  { name: "Blanqueamiento dental", href: "/odontologia#estetica-dental" },
 ] as const;
 
 const HIGHLIGHTS = [
@@ -163,15 +163,19 @@ export default function Home() {
               </h2>
               <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {AREAS.map((area) => (
-                  <li
-                    key={area}
-                    className="flex items-center gap-3 rounded-2xl border border-accent/25 bg-sand px-6 py-5"
-                  >
-                    <span
-                      className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent"
-                      aria-hidden
-                    />
-                    <span className="font-serif text-lead">{area}</span>
+                  <li key={area.name}>
+                    <Link
+                      href={area.href}
+                      className="group flex h-full items-center gap-3 rounded-2xl border border-accent/25 bg-sand px-6 py-5 transition-[border-color,box-shadow] hover:border-accent/50 hover:shadow-[0_10px_36px_rgba(34,52,60,0.08)]"
+                    >
+                      <span
+                        className="h-2.5 w-2.5 shrink-0 rounded-full bg-accent"
+                        aria-hidden
+                      />
+                      <span className="font-serif text-lead group-hover:text-accent">
+                        {area.name}
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>
