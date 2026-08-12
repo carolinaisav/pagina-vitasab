@@ -6,22 +6,30 @@ import { clinic } from "@/lib/seo/clinic";
 export const metadata = pageMetadata({
   title: "Equipo",
   description:
-    "Un equipo pequeño de especialistas. Puedes ver quiénes somos, dónde estudiamos y en qué nos especializamos, y verificar cada título en el Registro Nacional de Prestadores.",
+    "En Vitasab contamos con un equipo multidisciplinario de profesionales y especialistas que trabajan de manera coordinada para entregar una atención integral y personalizada.",
   path: "/equipo",
 });
 
-// Intro y notas de cierre: docs/contenido/equipo.md. Datos: src/lib/seo/clinic.ts.
-// Tono art. 46: objetiva, transparente, veraz y moderada. Sin superlativos.
-
-const INTRO =
-  "Te atiende un equipo pequeño de especialistas. Cada tratamiento lo realiza quien tiene la " +
-  "formación específica para hacerlo. Acá puedes ver quiénes somos, dónde estudiamos y en qué nos " +
-  "especializamos — y verificar cada título en el Registro Nacional de Prestadores.";
+const LEAD =
+  "En Vitasab contamos con un equipo multidisciplinario de profesionales y especialistas que " +
+  "trabajan de manera coordinada para entregar una atención integral y personalizada.";
 
 export default function EquipoPage() {
   return (
-    <PageLayout title="Nuestro equipo" lead={INTRO}>
+    <PageLayout title="Nuestro equipo" lead={LEAD}>
       <div className="flex flex-col gap-10">
+        <div className="reading-measure flex flex-col gap-5 text-base text-foreground/90">
+          <p>
+            Cada paciente es evaluado según sus necesidades y, cuando el tratamiento lo requiere, las
+            distintas especialidades se complementan para definir el mejor plan a seguir.
+          </p>
+          <p>
+            Nos une una misma forma de trabajar: experiencia, cercanía, criterio clínico y atención
+            personalizada, buscando que cada paciente se sienta acompañado y en confianza durante todo
+            su tratamiento.
+          </p>
+        </div>
+
         <ul className="flex flex-col gap-10">
           {clinic.professionals.map((p) => (
             <li
@@ -37,33 +45,15 @@ export default function EquipoPage() {
                   Especialista en {p.specialty}
                   {p.specialtyUniversity ? ` · ${p.specialtyUniversity}` : ""}
                 </p>
-                <p className="text-base text-foreground/80">
-                  Ficha en el RNPI:{" "}
-                  {p.rnpiUrl ? (
-                    <a
-                      href={p.rnpiUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline underline-offset-4"
-                    >
-                      Ver ficha en el Registro Nacional de Prestadores
-                    </a>
-                  ) : (
-                    <Placeholder>DATO: link RNPI</Placeholder>
-                  )}
-                </p>
-                <p className="text-base text-foreground/80">
-                  {p.photoUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={p.photoUrl}
-                      alt={`Retrato de ${p.name}`}
-                      className="max-w-full rounded-2xl"
-                    />
-                  ) : (
-                    <Placeholder>FOTO: retrato dirigido</Placeholder>
-                  )}
-                </p>
+                {p.bio ? <p className="text-base text-foreground/90">{p.bio}</p> : null}
+                {p.photoUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={p.photoUrl}
+                    alt={`Retrato de ${p.name}`}
+                    className="max-w-full rounded-2xl"
+                  />
+                ) : null}
               </article>
             </li>
           ))}

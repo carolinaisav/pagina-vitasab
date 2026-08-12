@@ -50,6 +50,8 @@ export interface ProfessionalData {
   readonly specialty: string;
   /** Universidad de la especialidad, si aplica. */
   readonly specialtyUniversity: string | null;
+  /** Reseña / trayectoria del profesional (texto provisto por Caro). Opcional. */
+  readonly bio?: string;
   /** Ficha en el RNPI (rnpi.superdesalud.gob.cl) — PENDIENTE. */
   readonly rnpiUrl: string | null;
   /** Retrato (sesión dirigida, nunca stock) — PENDIENTE. */
@@ -125,6 +127,8 @@ export const clinic: ClinicData = {
       university: "Universidad de los Andes",
       specialty: "Implantología Bucomaxilofacial",
       specialtyUniversity: "Universidad Autónoma",
+      bio:
+        "Especialista en Implantología Bucomaxilofacial, con amplia experiencia en cirugía bucal y en la resolución de desafíos estéticos en todo tipo de dentaduras. Cuenta con más de 15 años de experiencia en rejuvenecimiento facial y tratamientos estéticos en rostro y cuello. A lo largo de su trayectoria, se ha destacado por ofrecer tratamientos integrales y resolutivos, atendiendo tanto a niños como a adultos, con un enfoque completo y personalizado.",
       rnpiUrl: null, // TODO PENDIENTE.
       photoUrl: null, // TODO PENDIENTE.
     },

@@ -28,13 +28,10 @@ const CATEGORIES: readonly Service[] = [
     ],
   },
   {
-    id: "bioestimulacion",
-    name: "Bioestimulación",
+    id: "radiesse",
+    name: "Radiesse",
     items: [
-      {
-        term: "Bioestimulación de colágeno",
-        desc: "Tratamientos inyectables como Radiesse®, orientados a estimular la producción natural de colágeno y mejorar progresivamente la firmeza, calidad y apariencia de la piel.",
-      },
+      "Tratamientos inyectables orientados a estimular la producción natural de colágeno y mejorar progresivamente la firmeza, calidad y apariencia de la piel",
     ],
   },
   {
