@@ -130,7 +130,7 @@ export const clinic: ClinicData = {
       bio:
         "Especialista en Implantología Bucomaxilofacial, con amplia experiencia en cirugía bucal y en la resolución de desafíos estéticos en todo tipo de dentaduras. Cuenta con más de 15 años de experiencia en rejuvenecimiento facial y tratamientos estéticos en rostro y cuello. A lo largo de su trayectoria, se ha destacado por ofrecer tratamientos integrales y resolutivos, atendiendo tanto a niños como a adultos, con un enfoque completo y personalizado.",
       rnpiUrl: null, // TODO PENDIENTE.
-      photoUrl: null, // TODO PENDIENTE.
+      photoUrl: "/marco-barthelemiez.jpg", // Retrato provisto por Caro (extraído del PDF).
     },
     {
       name: "Daniela Figueroa",

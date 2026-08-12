@@ -33,26 +33,28 @@ export default function EquipoPage() {
           {clinic.professionals.map((p) => (
             <li
               key={p.name}
-              className="reading-measure border-t border-foreground/10 pt-8 first:border-t-0 first:pt-0"
+              className="border-t border-foreground/10 pt-8 first:border-t-0 first:pt-0"
             >
-              <article className="flex flex-col gap-3">
-                <h2 className="font-serif text-h3">{p.name}</h2>
-                <p className="text-base text-foreground/90">
-                  {p.title} · {p.university}
-                </p>
-                <p className="text-base text-foreground/90">
-                  Especialista en {p.specialty}
-                  {p.specialtyUniversity ? ` · ${p.specialtyUniversity}` : ""}
-                </p>
-                {p.bio ? <p className="text-base text-foreground/90">{p.bio}</p> : null}
+              <article className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
                 {p.photoUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={p.photoUrl}
                     alt={`Retrato de ${p.name}`}
-                    className="max-w-full rounded-2xl"
+                    className="w-full max-w-[240px] shrink-0 rounded-2xl sm:w-56"
                   />
                 ) : null}
+                <div className="reading-measure flex flex-col gap-3">
+                  <h2 className="font-serif text-h3">{p.name}</h2>
+                  <p className="text-base text-foreground/90">
+                    {p.title} · {p.university}
+                  </p>
+                  <p className="text-base text-foreground/90">
+                    Especialista en {p.specialty}
+                    {p.specialtyUniversity ? ` · ${p.specialtyUniversity}` : ""}
+                  </p>
+                  {p.bio ? <p className="text-base text-foreground/90">{p.bio}</p> : null}
+                </div>
               </article>
             </li>
           ))}
