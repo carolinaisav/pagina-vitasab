@@ -180,8 +180,8 @@ export default function Home() {
                     <strong className="font-semibold text-ink">
                       experiencia clínica, especialización y tecnología
                     </strong>
-                    , en un espacio diseñado para ofrecer una atención cercana, personalizada y de
-                    alto estándar.
+                    , junto con insumos de primera calidad y productos premium, seleccionados para
+                    ofrecer tratamientos de alto estándar y favorecer resultados duraderos.
                   </p>
                 </div>
 
