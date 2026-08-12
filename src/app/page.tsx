@@ -46,6 +46,7 @@ const STATS: readonly { readonly value: string; readonly label: string }[] = [
 
 // Reseñas de Google (Caro las va agregando a medida que llegan, 2026-08-11).
 const REVIEWS: readonly Review[] = [
+  { author: "Constanza Ragal Chaigneau", rating: 5, time: "Hace 2 minutos" },
   { author: "centro psicologicoalma", rating: 5, time: "Hace 4 semanas", text: "recomiendo" },
   { author: "Carolina Valenzuela", rating: 5, time: "Hace 24 semanas" },
 ];
