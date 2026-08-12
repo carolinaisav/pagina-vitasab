@@ -41,7 +41,7 @@ const HIGHLIGHTS = [
   {
     href: "/equipo",
     title: "Conoce al equipo",
-    blurb: "Especialistas con título verificable en el RNPI.",
+    blurb: "Conoce a los profesionales que te atienden.",
   },
 ] as const;
 
