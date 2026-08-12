@@ -93,9 +93,11 @@ export interface ClinicData {
  * Lee `NEXT_PUBLIC_SITE_URL` del entorno con fallback a producción.
  * Se normaliza sin barra final para concatenar rutas de forma segura.
  */
-export const SITE_URL: string = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://vitasab.cl"
-).replace(/\/+$/, "");
+export const SITE_URL: string = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.vitasab.cl")
+  .replace(/\/+$/, "")
+  // Fuerza el dominio canónico con www (aunque el entorno traiga el apex), para
+  // que canonical, sitemap y robots apunten siempre a la misma URL.
+  .replace(/^https?:\/\/vitasab\.cl/i, "https://www.vitasab.cl");
 
 /**
  * Datos confirmados de la clínica (docs/DATOS-CLINICA.md, actualizado 2026-07-15).
