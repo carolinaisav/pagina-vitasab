@@ -17,22 +17,13 @@ const CATEGORIES: readonly {
   readonly brands?: readonly string[];
 }[] = [
   {
-    title: "Implantes",
-    desc: "Los sistemas de implantes que usamos, de marcas reconocidas.",
-  },
-  {
     title: "Estética y cremas",
     desc: "Productos de cuidado y estética disponibles en la consulta.",
     brands: ["Germaine de Capuccini"],
   },
   {
-    title: "Cepillos dentales",
-    desc: "Cepillos que recomendamos y que puedes comprar aquí.",
-    brands: ["PHB", "Vitis", "Interprox"],
-  },
-  {
-    title: "Pastas dentales",
-    desc: "Pastas y productos de higiene para el día a día.",
+    title: "Cepillos y pastas dentales",
+    desc: "Cepillos, pastas y productos de higiene que recomendamos y puedes comprar aquí.",
     brands: ["PHB", "Vitis", "Interprox"],
   },
 ];
