@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/site/PageLayout";
 import { CTA } from "@/components/ui/CTA";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 import { pageMetadata } from "@/lib/seo/metadata";
 
@@ -12,28 +11,31 @@ export const metadata: Metadata = pageMetadata({
   path: "/alianzas",
 });
 
-const CATEGORIES = [
+const CATEGORIES: readonly {
+  readonly title: string;
+  readonly desc: string;
+  readonly brands?: readonly string[];
+}[] = [
   {
     title: "Implantes",
     desc: "Los sistemas de implantes que usamos, de marcas reconocidas.",
-    dato: "DATO: marcas de implantes",
   },
   {
     title: "Estética y cremas",
     desc: "Productos de cuidado y estética disponibles en la consulta.",
-    dato: "DATO: marcas de cremas / estética",
+    brands: ["Germaine de Capuccini"],
   },
   {
     title: "Cepillos dentales",
     desc: "Cepillos que recomendamos y que puedes comprar aquí.",
-    dato: "DATO: marcas de cepillos",
+    brands: ["PHB", "Vitis", "Interprox"],
   },
   {
     title: "Pastas dentales",
     desc: "Pastas y productos de higiene para el día a día.",
-    dato: "DATO: marcas de pastas dentales",
+    brands: ["PHB", "Vitis", "Interprox"],
   },
-] as const;
+];
 
 export default function AlianzasPage() {
   const wa = whatsappIntentLink("agendar");
@@ -51,12 +53,18 @@ export default function AlianzasPage() {
           >
             <h2 className="font-serif text-h4">{c.title}</h2>
             <p className="mt-2 text-base text-ink-soft">{c.desc}</p>
-            <p className="mt-4">
-              <Placeholder>{c.dato}</Placeholder>
-            </p>
-            <p className="mt-2 text-caption text-ink-soft">
-              <Placeholder>FOTO: logos de las marcas</Placeholder>
-            </p>
+            {c.brands ? (
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {c.brands.map((b) => (
+                  <li
+                    key={b}
+                    className="rounded-full border border-accent/30 px-3 py-1 text-caption font-medium text-accent"
+                  >
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         ))}
       </div>
