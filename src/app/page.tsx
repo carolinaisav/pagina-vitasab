@@ -6,6 +6,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { IconInstagram, IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { ReviewsCarousel, type Review } from "@/components/site/ReviewsCarousel";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 import { clinic } from "@/lib/seo/clinic";
 
@@ -41,6 +42,12 @@ const STATS: readonly { readonly value: string; readonly label: string }[] = [
   { value: "15", label: "años de experiencia" },
   { value: "Lunes a Viernes", label: "9.30 a 19.15 hrs" },
   { value: "Rosario Sur / Apoquindo", label: "a pasos del Metro Manquehue" },
+];
+
+// Reseñas de Google (Caro las va agregando a medida que llegan, 2026-08-11).
+const REVIEWS: readonly Review[] = [
+  { author: "centro psicologicoalma", rating: 5, time: "Hace 4 semanas", text: "recomiendo" },
+  { author: "Carolina Valenzuela", rating: 5, time: "Hace 24 semanas" },
 ];
 
 function CardLink({
@@ -258,8 +265,20 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Reseñas de Google — PENDIENTE de contenido (comentarios + estrellas de Marco).
-            La sección de Urgencias se eliminó a pedido de Caro (2026-08-11). */}
+        {/* Reseñas de Google — carrusel (reemplaza la antigua sección de Urgencias) */}
+        <section className="mt-20 sm:mt-32">
+          <Reveal>
+            <Container>
+              <span className="eyebrow">Opiniones</span>
+              <h2 className="mt-4 max-w-2xl font-serif text-h2">
+                Lo que dicen nuestros pacientes en Google
+              </h2>
+              <div className="mt-10">
+                <ReviewsCarousel reviews={REVIEWS} />
+              </div>
+            </Container>
+          </Reveal>
+        </section>
 
         {/* Enlaces destacados */}
         <section className="mt-20 sm:mt-32">
