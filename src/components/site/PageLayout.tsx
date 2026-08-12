@@ -24,7 +24,7 @@ export function PageLayout({ title, eyebrow, lead, children }: PageLayoutProps) 
             <div className="reading-measure">
               {eyebrow ? <span className="eyebrow">{eyebrow}</span> : null}
               <h1 className={`font-serif text-h1${eyebrow ? " mt-4" : ""}`}>{title}</h1>
-              {lead ? <p className="mt-5 text-lead text-ink-soft">{lead}</p> : null}
+              {lead ? <p className="mt-5 text-base text-ink-soft">{lead}</p> : null}
             </div>
           </Container>
         </section>

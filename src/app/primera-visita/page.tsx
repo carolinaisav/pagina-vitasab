@@ -31,7 +31,7 @@ export default function PrimeraVisitaPage() {
           Con toda la información, definimos urgencias y prioridades y te presentamos un plan de
           tratamiento personalizado junto con su presupuesto, explicándote claramente cada etapa.
         </p>
-        <p className="font-serif text-lead text-accent">
+        <p className="font-serif text-base text-accent">
           Evaluamos · Diagnosticamos · Priorizamos · Planificamos.
         </p>
 

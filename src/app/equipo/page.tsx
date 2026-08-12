@@ -45,7 +45,7 @@ export default function EquipoPage() {
                   />
                 ) : null}
                 <div className="reading-measure flex flex-col gap-3">
-                  <h2 className="font-serif text-h3">{p.name}</h2>
+                  <h2 className="font-serif text-h4">{p.name}</h2>
                   <p className="text-base text-foreground/90">
                     {p.title} · {p.university}
                   </p>

@@ -19,7 +19,7 @@ export interface Service {
 
 export function ServiceBlock({
   service,
-  titleClassName = "font-serif text-h3 text-ink",
+  titleClassName = "font-serif text-h4 text-ink",
 }: {
   readonly service: Service;
   readonly titleClassName?: string;
@@ -29,7 +29,7 @@ export function ServiceBlock({
       <h2 className={titleClassName}>{service.name}</h2>
 
       {service.description ? (
-        <p className="mt-4 max-w-2xl text-lead leading-relaxed text-ink-soft">
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-ink-soft">
           {service.description}
         </p>
       ) : null}
