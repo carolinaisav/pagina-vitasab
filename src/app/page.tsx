@@ -156,7 +156,7 @@ export default function Home() {
                   Experiencia, especialización y atención personalizada
                 </h2>
 
-                <div className="mt-6 flex flex-col gap-5 text-base text-ink-soft">
+                <div className="mt-10 flex flex-col gap-5 text-base text-ink-soft">
                   <p>
                     Vitasab es una{" "}
                     <strong className="font-semibold text-ink">
