@@ -1,5 +1,4 @@
 import { PageLayout } from "@/components/site/PageLayout";
-import { Placeholder } from "@/components/ui/Placeholder";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { clinic } from "@/lib/seo/clinic";
 
@@ -58,24 +57,6 @@ export default function EquipoPage() {
             </li>
           ))}
         </ul>
-
-        {/* Cierre — pendientes de veracidad (art. 46): no se publica especialidad sin
-            profesional real detrás. Ver docs/contenido/equipo.md §Pendientes. */}
-        <section className="reading-measure border-t border-foreground/10 pt-8">
-          <h2 className="font-serif text-h4">Especialidades por confirmar</h2>
-          <ul className="mt-3 flex flex-col gap-2 pl-5 text-base text-foreground/80 [&_li]:list-disc">
-            <li>
-              Odontopediatría (atención de niños) no tiene profesional asignado:{" "}
-              <Placeholder>PENDIENTE: quién realiza odontopediatría</Placeholder>
-            </li>
-            <li>
-              Falta confirmar si el equipo ofrece estética facial y odontología general:{" "}
-              <Placeholder>
-                PENDIENTE: confirmar profesional de estética facial y odontología general
-              </Placeholder>
-            </li>
-          </ul>
-        </section>
       </div>
     </PageLayout>
   );
