@@ -4,6 +4,7 @@ import Link from "next/link";
 const NAV = [
   { href: "/#clinica-vitasab", label: "Clínica Vitasab" },
   { href: "/odontologia", label: "Odontología" },
+  { href: "/resultados", label: "Casos reales" },
   { href: "/estetica-facial", label: "Estética Facial" },
   { href: "/equipo", label: "Equipo" },
   { href: "/primera-visita", label: "Primera Visita" },
