@@ -49,11 +49,14 @@ export default function EquipoPage() {
                   <p className="text-base text-foreground/90">
                     {p.title} · {p.university}
                   </p>
-                  <p className="text-base text-foreground/90">
-                    Especialista en {p.specialty}
-                    {p.specialtyUniversity ? ` · ${p.specialtyUniversity}` : ""}
-                  </p>
-                  {p.bio ? <p className="text-base text-foreground/90">{p.bio}</p> : null}
+                  {p.bio ? (
+                    <p className="text-base text-foreground/90">{p.bio}</p>
+                  ) : (
+                    <p className="text-base text-foreground/90">
+                      Especialista en {p.specialty}
+                      {p.specialtyUniversity ? ` · ${p.specialtyUniversity}` : ""}
+                    </p>
+                  )}
                 </div>
               </article>
             </li>
