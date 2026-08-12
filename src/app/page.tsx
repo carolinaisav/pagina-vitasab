@@ -28,12 +28,7 @@ const HIGHLIGHTS = [
   {
     href: "/primera-visita",
     title: "Tu primera visita",
-    blurb: "Qué pasa paso a paso, cuánto dura y qué llevar.",
-  },
-  {
-    href: "/convenios",
-    title: "Convenios y financiamiento",
-    blurb: "Qué cubre tu previsión, con la verdad por delante.",
+    blurb: "Una evaluación integral de tu salud bucal y un plan de tratamiento personalizado.",
   },
   {
     href: "/equipo",
@@ -44,7 +39,6 @@ const HIGHLIGHTS = [
 
 const STATS: readonly { readonly value: string; readonly label: string }[] = [
   { value: "15", label: "años de experiencia" },
-  { value: "Facilidades de pago", label: "con tarjeta de crédito" },
   { value: "Lunes a Viernes", label: "9.30 a 19.15 hrs" },
   { value: "Rosario Sur / Apoquindo", label: "a pasos del Metro Manquehue" },
 ];
@@ -53,15 +47,19 @@ function CardLink({
   href,
   title,
   blurb,
+  centered = false,
 }: {
   readonly href: string;
   readonly title: string;
   readonly blurb: string;
+  readonly centered?: boolean;
 }) {
   return (
     <Link
       href={href}
-      className="group flex flex-col rounded-[2rem] border border-accent/25 bg-sand p-8 transition-[box-shadow,border-color] hover:border-accent/50 hover:shadow-[0_12px_44px_rgba(34,52,60,0.10)]"
+      className={`group flex flex-col rounded-[2rem] border border-accent/25 bg-sand p-8 transition-[box-shadow,border-color] hover:border-accent/50 hover:shadow-[0_12px_44px_rgba(34,52,60,0.10)]${
+        centered ? " items-center text-center" : ""
+      }`}
     >
       <h3 className="font-serif text-h4">{title}</h3>
       <p className="mt-2 text-base text-ink-soft">{blurb}</p>
@@ -149,7 +147,7 @@ export default function Home() {
                   Experiencia, especialización y atención personalizada
                 </h2>
 
-                <div className="mt-8 flex flex-col gap-6 text-lead text-ink-soft">
+                <div className="mt-6 flex flex-col gap-5 text-base text-ink-soft">
                   <p>
                     Vitasab es una{" "}
                     <strong className="font-semibold text-ink">
@@ -180,7 +178,7 @@ export default function Home() {
 
                 <div className="mt-12 flex flex-col gap-10">
                   <div>
-                    <h3 className="font-serif text-h3">Una mirada integral</h3>
+                    <h3 className="font-serif text-h4">Una mirada integral</h3>
                     <p className="mt-3 text-base text-ink-soft">
                       Entendemos que salud, función y estética están conectadas. Por eso, nuestras
                       distintas especialidades trabajan en conjunto cuando un tratamiento lo
@@ -191,7 +189,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-h3">Una clínica boutique</h3>
+                    <h3 className="font-serif text-h4">Una clínica boutique</h3>
                     <p className="mt-3 text-base text-ink-soft">
                       Para nosotros, ser una clínica boutique significa privilegiar una atención más
                       personalizada, cuidando tanto la calidad del tratamiento como la experiencia de
@@ -206,7 +204,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h3 className="font-serif text-h3">Más de 15 años cuidando a nuestros pacientes</h3>
+                    <h3 className="font-serif text-h4">Más de 15 años cuidando a nuestros pacientes</h3>
                     <p className="mt-3 text-base text-ink-soft">
                       Nuestra trayectoria nos ha permitido construir una práctica basada en la
                       experiencia, la confianza y el trabajo de un equipo especializado.
@@ -230,10 +228,12 @@ export default function Home() {
         <section className="mt-20 sm:mt-32">
           <Reveal>
             <Container>
-              <div className="grid gap-10 rounded-[2rem] border border-accent/25 bg-sand px-8 py-14 sm:grid-cols-2 sm:px-12 lg:grid-cols-4">
+              <div className="grid gap-10 rounded-[2rem] border border-accent/25 bg-sand px-8 py-14 sm:grid-cols-3 sm:px-12">
                 {STATS.map((s) => (
-                  <div key={s.label}>
-                    <div className="font-serif text-h4 text-accent">{s.value}</div>
+                  <div key={s.label} className="text-center">
+                    <div className="font-serif text-h4 text-accent lining-nums tabular-nums">
+                      {s.value}
+                    </div>
                     <div className="mt-2 text-base text-ink-soft">{s.label}</div>
                   </div>
                 ))}
@@ -258,34 +258,16 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* Urgencias — realce cálido, no alarmista (§5.3) */}
-        <section className="mt-20 sm:mt-32">
-          <Reveal>
-            <Container>
-              <div className="flex flex-col gap-5 rounded-[2rem] border border-accent/30 bg-warm-tint px-8 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-12">
-                <div className="max-w-xl">
-                  <span className="eyebrow">Urgencias</span>
-                  <h2 className="mt-3 font-serif text-h3">¿Algo que no puede esperar?</h2>
-                  <p className="mt-2 text-base text-ink-soft">
-                    Dolor fuerte, un golpe o una hinchazón. Escríbenos o llámanos y te orientamos
-                    de inmediato.
-                  </p>
-                </div>
-                <CTA href="/urgencias" variant="secondary">
-                  Ver urgencias
-                </CTA>
-              </div>
-            </Container>
-          </Reveal>
-        </section>
+        {/* Reseñas de Google — PENDIENTE de contenido (comentarios + estrellas de Marco).
+            La sección de Urgencias se eliminó a pedido de Caro (2026-08-11). */}
 
         {/* Enlaces destacados */}
         <section className="mt-20 sm:mt-32">
           <Reveal>
             <Container>
-              <div className="grid gap-5 sm:grid-cols-3">
+              <div className="mx-auto grid max-w-4xl gap-5 sm:grid-cols-2">
                 {HIGHLIGHTS.map((h) => (
-                  <CardLink key={h.href} href={h.href} title={h.title} blurb={h.blurb} />
+                  <CardLink key={h.href} href={h.href} title={h.title} blurb={h.blurb} centered />
                 ))}
               </div>
             </Container>
