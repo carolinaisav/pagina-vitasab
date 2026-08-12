@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -9,6 +10,12 @@ import { Footer } from "@/components/site/Footer";
 import { ReviewsCarousel, type Review } from "@/components/site/ReviewsCarousel";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 import { clinic } from "@/lib/seo/clinic";
+
+export const metadata: Metadata = {
+  title: { absolute: "Dentistas en Las Condes | Clínica dental VITASAB" },
+  description:
+    "Clínica Vitasab: clínica dental boutique en Las Condes, a pasos del Metro Manquehue. Dentistas especialistas en odontología, ortodoncia, implantes, estética dental y facial. Agenda por WhatsApp.",
+};
 
 const AREAS = [
   {

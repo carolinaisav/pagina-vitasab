@@ -118,7 +118,13 @@ export const clinic: ClinicData = {
     postalCode: null, // TODO PENDIENTE.
   },
   geo: null, // TODO PENDIENTE: latitud/longitud (§1.4 "el metro es la dirección real").
-  openingHours: null, // TODO PENDIENTE: horarios de atención y si atienden sábados.
+  openingHours: [
+    {
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:30",
+      closes: "19:15",
+    },
+  ], // Confirmado por Caro: Lunes a Viernes 9:30–19:15.
   priceRange: null, // TODO PENDIENTE: rango de precios / valor 1.ª consulta (solo si Marco aprueba).
   imageUrl: null, // TODO PENDIENTE: foto real (sesión dirigida, nunca stock).
   seremiResolution: null, // TODO PENDIENTE: N.º resolución sanitaria SEREMI por sala.

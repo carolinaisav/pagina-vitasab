@@ -30,6 +30,20 @@ export interface JsonLdEmployee {
   readonly alumniOf: JsonLdCollegeOrUniversity;
 }
 
+/** Ciudad/comuna servida. */
+export interface JsonLdCity {
+  readonly "@type": "City";
+  readonly name: string;
+}
+
+/** Horario de atención (Schema.org OpeningHoursSpecification). */
+export interface JsonLdOpeningHours {
+  readonly "@type": "OpeningHoursSpecification";
+  readonly dayOfWeek: readonly string[];
+  readonly opens: string;
+  readonly closes: string;
+}
+
 /** Documento JSON-LD raíz de la clínica. */
 export interface DentistJsonLd {
   readonly "@context": "https://schema.org";
@@ -39,13 +53,15 @@ export interface DentistJsonLd {
   readonly address: JsonLdPostalAddress;
   readonly telephone: string;
   readonly url: string;
+  readonly image: string;
+  readonly areaServed: readonly JsonLdCity[];
   readonly medicalSpecialty: readonly string[];
+  readonly openingHoursSpecification?: readonly JsonLdOpeningHours[];
+  readonly sameAs: readonly string[];
   readonly employee: readonly JsonLdEmployee[];
   // ── Campos PENDIENTES — NO inventar (docs/DATOS-CLINICA.md). Añadir cuando existan: ──
-  // geo:                       { "@type": "GeoCoordinates", latitude, longitude }   // clinic.geo
-  // openingHoursSpecification: OpeningHoursSpecification[]                           // clinic.openingHours
-  // priceRange:                string                                               // clinic.priceRange
-  // image:                     string                                               // clinic.imageUrl
+  // geo:        { "@type": "GeoCoordinates", latitude, longitude }   // clinic.geo
+  // priceRange: string                                               // clinic.priceRange
 }
 
 /**
@@ -71,7 +87,23 @@ export function buildDentistJsonLd(
     },
     telephone: data.telephone,
     url: siteUrl,
+    image: `${siteUrl}/foto-inicio.png`,
+    areaServed: [
+      { "@type": "City", name: "Las Condes" },
+      { "@type": "City", name: "Santiago" },
+    ],
     medicalSpecialty: [...data.confirmedSpecialties],
+    openingHoursSpecification: data.openingHours
+      ? data.openingHours.map(
+          (h): JsonLdOpeningHours => ({
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [...h.dayOfWeek],
+            opens: h.opens,
+            closes: h.closes,
+          }),
+        )
+      : undefined,
+    sameAs: ["https://www.instagram.com/clinica.vitasab/"],
     employee: data.professionals.map(
       (p): JsonLdEmployee => ({
         "@type": "Dentist",
