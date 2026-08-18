@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CTA } from "@/components/ui/CTA";
+import { whatsappIntentLink } from "@/lib/whatsapp";
 
 const NAV = [
   { href: "/#clinica-vitasab", label: "Clínica Vitasab" },
@@ -21,6 +23,8 @@ const NAV_LINK =
  * El CTA de agendar vive en el botón flotante. "Contacto" baja al mapa del home (/#contacto).
  */
 export function Header() {
+  const wa = whatsappIntentLink("agendar");
+
   return (
     <header className="sticky top-0 z-50 border-b border-accent/15 bg-sand/90 backdrop-blur">
       <a
@@ -30,7 +34,7 @@ export function Header() {
         Saltar al contenido
       </a>
 
-      <div className="mx-auto flex w-full max-w-6xl items-center gap-10 px-6 py-5 sm:px-8 sm:py-6">
+      <div className="mx-auto flex w-full max-w-6xl items-center gap-6 px-6 py-5 sm:px-8 sm:py-6">
         <Link href="/" aria-label="VITASAB — ir al inicio" className="shrink-0">
           <Image
             src="/vitasab-logo-10a-v2.png"
@@ -52,6 +56,10 @@ export function Header() {
             </Link>
           ))}
         </nav>
+
+        <CTA href={wa} variant="primary" className="hidden shrink-0 lg:inline-flex">
+          Agendar hora
+        </CTA>
 
         <details className="relative ml-auto lg:hidden">
           <summary
@@ -103,6 +111,9 @@ export function Header() {
                 </Link>
               ))}
             </nav>
+            <CTA href={wa} variant="primary" className="mt-3 w-full">
+              Agendar hora
+            </CTA>
           </div>
         </details>
       </div>

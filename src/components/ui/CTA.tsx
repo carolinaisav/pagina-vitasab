@@ -14,7 +14,7 @@ interface CTAProps {
 }
 
 const BASE =
-  "tap-target gap-2 rounded-full px-6 text-base font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  "tap-target gap-2 rounded-full px-6 text-base font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink";
 
 const VARIANTS: Record<Variant, string> = {
   primary: "bg-accent text-accent-foreground hover:opacity-90",

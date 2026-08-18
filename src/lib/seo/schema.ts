@@ -87,7 +87,7 @@ export function buildDentistJsonLd(
     },
     telephone: data.telephone,
     url: siteUrl,
-    image: `${siteUrl}/foto-inicio.png`,
+    image: `${siteUrl}/foto-inicio.jpg`,
     areaServed: [
       { "@type": "City", name: "Las Condes" },
       { "@type": "City", name: "Santiago" },

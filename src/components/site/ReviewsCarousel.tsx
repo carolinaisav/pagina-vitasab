@@ -18,7 +18,7 @@ function Stars({ rating }: { readonly rating: number }) {
   return (
     <div
       className="flex gap-0.5"
-      style={{ color: "#f4b400" }}
+      style={{ color: "#C8880B" }}
       role="img"
       aria-label={`${rating} de 5 estrellas`}
     >
@@ -50,7 +50,7 @@ export function ReviewsCarousel({ reviews }: { readonly reviews: readonly Review
   };
 
   const arrowClass =
-    "flex h-11 w-11 items-center justify-center rounded-full border border-accent/30 text-accent transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+    "flex h-11 w-11 items-center justify-center rounded-full border border-accent/30 text-accent transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent";
 
   return (
     <div>

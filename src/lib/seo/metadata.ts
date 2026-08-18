@@ -31,6 +31,19 @@ export const rootMetadata: Metadata = {
     locale: "es_CL",
     siteName: clinic.brandName,
     url: SITE_URL,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Clínica Vitasab — clínica dental en Las Condes",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    images: ["/og-image.jpg"],
   },
 };
 
@@ -68,6 +81,13 @@ export function pageMetadata({ title, description, path }: PageMetadataParams): 
       title,
       description,
       url: canonical,
+      images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og-image.jpg"],
     },
   };
 }

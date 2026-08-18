@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { CTA } from "@/components/ui/CTA";
 import { Reveal } from "@/components/ui/Reveal";
-import { IconInstagram, IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
+import { IconClock, IconInstagram, IconLocation, IconPhone, IconWhatsApp } from "@/components/ui/icons";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { ReviewsCarousel, type Review } from "@/components/site/ReviewsCarousel";
@@ -51,12 +51,13 @@ const STATS: readonly { readonly value: string; readonly label: string }[] = [
   { value: "Rosario Sur / Apoquindo", label: "a pasos del Metro Manquehue" },
 ];
 
-// Reseñas de Google (Caro las va agregando a medida que llegan, 2026-08-11).
+// Reseñas de Google (Caro las va agregando a medida que llegan). Sin marcas de
+// tiempo relativas ("Hace X"): eran fijas y con el tiempo se leían como inventadas.
 const REVIEWS: readonly Review[] = [
-  { author: "Constanza Ragal Chaigneau", rating: 5, time: "Hace 2 minutos" },
-  { author: "verena Barthelemiez", rating: 5, time: "Hace 10 minutos", text: "Tiene pasión por su profesión!" },
-  { author: "centro psicologicoalma", rating: 5, time: "Hace 4 semanas", text: "recomiendo" },
-  { author: "Carolina Valenzuela", rating: 5, time: "Hace 24 semanas" },
+  { author: "Constanza Ragal Chaigneau", rating: 5, time: "Opinión en Google" },
+  { author: "verena Barthelemiez", rating: 5, time: "Opinión en Google", text: "Tiene pasión por su profesión!" },
+  { author: "centro psicologicoalma", rating: 5, time: "Opinión en Google", text: "recomiendo" },
+  { author: "Carolina Valenzuela", rating: 5, time: "Opinión en Google" },
 ];
 
 function CardLink({
@@ -109,7 +110,7 @@ export default function Home() {
             style={{ clipPath: "url(#hero-curve)" }}
           >
             <Image
-              src="/foto-inicio.png"
+              src="/foto-inicio.jpg"
               alt="Recepción de la clínica VITASAB en Las Condes"
               fill
               priority
@@ -121,7 +122,7 @@ export default function Home() {
           <Container className="relative z-10 py-16 sm:py-24 lg:min-h-[600px] lg:py-32">
             <div className="lg:max-w-[46%]">
               <h1 className="focus-in font-serif leading-[0.92]">
-                <span className="block text-h3 text-ink-soft sm:text-h2">Clínica</span>
+                <span className="block text-h3 text-ink-soft sm:text-h2">Clínica dental</span>
                 <span className="block text-[3.5rem] text-ink sm:text-[4.5rem] lg:text-[6rem]">
                   VITASAB
                 </span>
@@ -137,12 +138,22 @@ export default function Home() {
                   Cómo es tu primera visita
                 </CTA>
               </div>
+              <p className="mt-4 max-w-md text-caption text-ink-soft">
+                O llámanos al{" "}
+                <a
+                  href={`tel:${clinic.telephone}`}
+                  className="font-medium text-ink underline-offset-4 hover:underline"
+                >
+                  {clinic.telephone}
+                </a>
+                . Respondemos por WhatsApp de lunes a viernes, 9:30 a 19:15 hrs.
+              </p>
             </div>
 
             {/* Foto (móvil): a lo ancho, abajo */}
             <div className="mt-10 aspect-[4/3] overflow-hidden rounded-[1.5rem] lg:hidden">
               <Image
-                src="/foto-inicio.png"
+                src="/foto-inicio.jpg"
                 alt="Recepción de la clínica VITASAB en Las Condes"
                 width={1540}
                 height={1021}
@@ -282,7 +293,22 @@ export default function Home() {
               <h2 className="mt-4 max-w-2xl font-serif text-h2">
                 Lo que dicen nuestros pacientes en Google
               </h2>
-              <div className="mt-10">
+              <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="font-serif text-h4 text-ink">5,0</span>
+                <span aria-hidden style={{ color: "#C8880B" }} className="text-lg">
+                  ★★★★★
+                </span>
+                <span className="text-base text-ink-soft">en Google</span>
+                <a
+                  href="https://www.google.com/search?q=Cl%C3%ADnica+Vitasab+Las+Condes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base font-medium text-accent underline underline-offset-4"
+                >
+                  Ver opiniones
+                </a>
+              </div>
+              <div className="mt-8">
                 <ReviewsCarousel reviews={REVIEWS} />
               </div>
             </Container>
@@ -316,6 +342,10 @@ export default function Home() {
                       <span>
                         Rosario Sur 91, oficina 303 · Las Condes. A pasos del Metro Manquehue.
                       </span>
+                    </li>
+                    <li className="flex items-center gap-3">
+                      <IconClock className="shrink-0 text-accent" />
+                      <span>Lunes a Viernes, 9:30 a 19:15 hrs</span>
                     </li>
                     <li className="flex items-center gap-3">
                       <IconPhone className="shrink-0 text-accent" />
@@ -356,7 +386,10 @@ export default function Home() {
                     <CTA href={wa} variant="primary">
                       Agendar Cita
                     </CTA>
-                    <CTA href="/como-llegar" variant="secondary">
+                    <CTA
+                      href="https://www.google.com/maps/dir/?api=1&destination=Rosario+Sur+91,+Las+Condes,+Santiago,+Chile"
+                      variant="secondary"
+                    >
                       Cómo llegar
                     </CTA>
                   </div>

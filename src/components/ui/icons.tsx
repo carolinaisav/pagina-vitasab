@@ -40,6 +40,16 @@ export function IconWhatsApp(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+/** Reloj (horario). */
+export function IconClock(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...BASE} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  );
+}
+
 /** Instagram. */
 export function IconInstagram(props: SVGProps<SVGSVGElement>) {
   return (
