@@ -300,7 +300,7 @@ export default function Home() {
                 </span>
                 <span className="text-base text-ink-soft">en Google</span>
                 <a
-                  href="https://www.google.com/search?q=Cl%C3%ADnica+Vitasab+Las+Condes"
+                  href="https://www.google.com/maps/search/?api=1&query=Dr.%20Marco%20Barthelemiez%2C%20Rosario%20Sur%2091%2C%20Las%20Condes"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-base font-medium text-accent underline underline-offset-4"

@@ -18,7 +18,7 @@ const NAV = [
   { href: "/#contacto", label: "Contacto" },
 ] as const;
 
-const NAV_LINK = "font-serif text-base tracking-[0.02em] transition-colors";
+const NAV_LINK = "font-serif text-[0.9375rem] tracking-[0.02em] transition-colors";
 
 /**
  * Header sticky: logo + navegación repartida + botón "Agendar hora". Marca la página
@@ -57,7 +57,7 @@ export function Header() {
 
         <nav
           aria-label="Navegación principal"
-          className="hidden flex-1 items-center justify-between lg:flex"
+          className="hidden flex-1 items-center justify-between gap-x-5 lg:flex"
         >
           {NAV.map((item) => {
             const active = isActive(item.href);
