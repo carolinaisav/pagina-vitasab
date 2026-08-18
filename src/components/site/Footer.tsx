@@ -5,10 +5,19 @@ import { IconInstagram, IconLocation, IconPhone, IconWhatsApp } from "@/componen
 import { clinic } from "@/lib/seo/clinic";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 
+const FOOTER_LINKS = [
+  { href: "/odontologia", label: "Odontología" },
+  { href: "/estetica-facial", label: "Estética Facial" },
+  { href: "/resultados", label: "Casos reales" },
+  { href: "/equipo", label: "Equipo" },
+  { href: "/primera-visita", label: "Primera visita" },
+  { href: "/alianzas", label: "Alianzas" },
+] as const;
+
 export function Footer() {
   return (
     <footer className="mt-24 bg-sand">
-      <Container className="grid gap-10 py-12 sm:grid-cols-2">
+      <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-3">
         <div>
           <Image
             src="/vitasab-logo-10a-v2.png"
@@ -20,6 +29,22 @@ export function Footer() {
           <p className="mt-4 text-base text-ink-soft">
             Clínica dental en Las Condes, Santiago.
           </p>
+        </div>
+
+        <div>
+          <h2 className="eyebrow">Explorar</h2>
+          <ul className="mt-4 flex flex-col gap-3 text-base">
+            {FOOTER_LINKS.map((l) => (
+              <li key={l.href}>
+                <Link
+                  href={l.href}
+                  className="inline-flex min-h-[44px] items-center text-ink-soft underline-offset-4 hover:text-accent hover:underline"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div>

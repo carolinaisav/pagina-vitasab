@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useRef } from "react";
 import { CTA } from "@/components/ui/CTA";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 
@@ -14,16 +18,21 @@ const NAV = [
   { href: "/#contacto", label: "Contacto" },
 ] as const;
 
-const NAV_LINK =
-  "font-serif text-base tracking-[0.02em] text-ink transition-colors hover:text-accent";
+const NAV_LINK = "font-serif text-base tracking-[0.02em] transition-colors";
 
 /**
- * Header sticky en una franja amplia: logo (fondo transparente) integrado a la izquierda y
- * la navegación repartida a lo ancho (serif elegante). Menú móvil con `<details>` nativo.
- * El CTA de agendar vive en el botón flotante. "Contacto" baja al mapa del home (/#contacto).
+ * Header sticky: logo + navegación repartida + botón "Agendar hora". Marca la página
+ * activa (aria-current) y el menú móvil (<details>) se cierra al tocar un enlace.
  */
 export function Header() {
   const wa = whatsappIntentLink("agendar");
+  const pathname = usePathname();
+  const menuRef = useRef<HTMLDetailsElement>(null);
+
+  const isActive = (href: string) => !href.includes("#") && pathname === href;
+  const closeMenu = () => {
+    if (menuRef.current) menuRef.current.open = false;
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-accent/15 bg-sand/90 backdrop-blur">
@@ -50,18 +59,26 @@ export function Header() {
           aria-label="Navegación principal"
           className="hidden flex-1 items-center justify-between lg:flex"
         >
-          {NAV.map((item) => (
-            <Link key={item.href} href={item.href} className={NAV_LINK}>
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) => {
+            const active = isActive(item.href);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`${NAV_LINK} ${active ? "text-accent" : "text-ink hover:text-accent"}`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <CTA href={wa} variant="primary" className="hidden shrink-0 lg:inline-flex">
           Agendar hora
         </CTA>
 
-        <details className="relative ml-auto lg:hidden">
+        <details ref={menuRef} className="relative ml-auto lg:hidden">
           <summary
             aria-label="Menú"
             className="tap-target cursor-pointer list-none rounded-md text-ink transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 [&::-webkit-details-marker]:hidden"
@@ -101,15 +118,20 @@ export function Header() {
               aria-label="Navegación principal (móvil)"
               className="flex flex-col gap-1"
             >
-              {NAV.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="tap-target justify-start font-serif text-lead text-ink"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {NAV.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={closeMenu}
+                    aria-current={active ? "page" : undefined}
+                    className={`tap-target justify-start font-serif text-lead ${active ? "text-accent" : "text-ink"}`}
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
             <CTA href={wa} variant="primary" className="mt-3 w-full">
               Agendar hora

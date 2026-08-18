@@ -12,7 +12,6 @@ const CANONICAL_HOST = "www.vitasab.cl";
 // Páginas con contenido pendiente. Cuando se redacte su texto real, sacarlas de aquí
 // y volver a agregarlas al sitemap (src/app/sitemap.ts).
 const NOINDEX_EXACT = new Set<string>([
-  "/contacto",
   "/convenios",
   "/urgencias",
   "/como-llegar",
@@ -21,7 +20,6 @@ const NOINDEX_EXACT = new Set<string>([
   "/prevencion-y-salud",
   "/restauracion",
   "/estetica",
-  "/preview-direcciones",
   "/legales/terminos",
   "/legales/accesibilidad",
 ]);
