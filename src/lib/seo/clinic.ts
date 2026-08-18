@@ -117,7 +117,7 @@ export const clinic: ClinicData = {
     addressCountry: "CL",
     postalCode: null, // TODO PENDIENTE.
   },
-  geo: null, // TODO PENDIENTE: latitud/longitud (§1.4 "el metro es la dirección real").
+  geo: { latitude: -33.4104227, longitude: -70.5703988 }, // Rosario Sur 91, of. 303 (Google Maps).
   openingHours: [
     {
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

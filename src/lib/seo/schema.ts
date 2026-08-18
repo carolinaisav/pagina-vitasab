@@ -44,6 +44,13 @@ export interface JsonLdOpeningHours {
   readonly closes: string;
 }
 
+/** Coordenadas geográficas (Schema.org GeoCoordinates). */
+export interface JsonLdGeo {
+  readonly "@type": "GeoCoordinates";
+  readonly latitude: number;
+  readonly longitude: number;
+}
+
 /** Documento JSON-LD raíz de la clínica. */
 export interface DentistJsonLd {
   readonly "@context": "https://schema.org";
@@ -56,11 +63,11 @@ export interface DentistJsonLd {
   readonly image: string;
   readonly areaServed: readonly JsonLdCity[];
   readonly medicalSpecialty: readonly string[];
+  readonly geo?: JsonLdGeo;
   readonly openingHoursSpecification?: readonly JsonLdOpeningHours[];
   readonly sameAs: readonly string[];
   readonly employee: readonly JsonLdEmployee[];
-  // ── Campos PENDIENTES — NO inventar (docs/DATOS-CLINICA.md). Añadir cuando existan: ──
-  // geo:        { "@type": "GeoCoordinates", latitude, longitude }   // clinic.geo
+  // ── Campos PENDIENTES — NO inventar (docs/DATOS-CLINICA.md). Añadir cuando exista: ──
   // priceRange: string                                               // clinic.priceRange
 }
 
@@ -93,6 +100,9 @@ export function buildDentistJsonLd(
       { "@type": "City", name: "Santiago" },
     ],
     medicalSpecialty: [...data.confirmedSpecialties],
+    geo: data.geo
+      ? { "@type": "GeoCoordinates", latitude: data.geo.latitude, longitude: data.geo.longitude }
+      : undefined,
     openingHoursSpecification: data.openingHours
       ? data.openingHours.map(
           (h): JsonLdOpeningHours => ({
