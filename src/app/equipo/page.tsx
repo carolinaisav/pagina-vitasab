@@ -1,4 +1,5 @@
 import { PageLayout } from "@/components/site/PageLayout";
+import { Reveal } from "@/components/ui/Reveal";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { clinic } from "@/lib/seo/clinic";
 
@@ -40,14 +41,14 @@ export default function EquipoPage() {
               key={p.name}
               className="border-t border-foreground/10 pt-8 first:border-t-0 first:pt-0"
             >
-              <article className="flex flex-col gap-6 sm:flex-row sm:items-stretch sm:gap-10">
+              <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-stretch sm:gap-10">
                 {p.photoUrl ? (
-                  <div className="aspect-square w-full max-w-[280px] shrink-0 overflow-hidden rounded-2xl sm:aspect-auto sm:w-64 sm:max-w-none">
+                  <div className="focus-in aspect-square w-full max-w-[280px] shrink-0 overflow-hidden rounded-2xl sm:aspect-auto sm:w-64 sm:max-w-none">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={p.photoUrl}
                       alt={`Retrato de ${p.name}`}
-                      className="focus-in h-full w-full object-cover object-center"
+                      className="zoom-hover h-full w-full object-cover object-center"
                     />
                   </div>
                 ) : null}
@@ -65,7 +66,7 @@ export default function EquipoPage() {
                     </p>
                   )}
                 </div>
-              </article>
+              </Reveal>
             </li>
           ))}
         </ul>

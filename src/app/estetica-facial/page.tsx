@@ -1,5 +1,6 @@
 import { PageLayout } from "@/components/site/PageLayout";
 import { ServiceBlock, type Service } from "@/components/site/ServiceBlock";
+import { Reveal } from "@/components/ui/Reveal";
 import { CTA } from "@/components/ui/CTA";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { whatsappIntentLink } from "@/lib/whatsapp";
@@ -71,7 +72,9 @@ export default function EsteticaFacialPage() {
         <div className="flex flex-col gap-12">
           {CATEGORIES.map((category, i) => (
             <div key={category.id} className={i > 0 ? "border-t border-ink/10 pt-12" : ""}>
-              <ServiceBlock service={category} titleClassName="font-serif text-h4 text-ink" />
+              <Reveal>
+                <ServiceBlock service={category} titleClassName="font-serif text-h4 text-ink" />
+              </Reveal>
             </div>
           ))}
         </div>

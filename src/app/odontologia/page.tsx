@@ -1,5 +1,6 @@
 import { PageLayout } from "@/components/site/PageLayout";
 import { ServiceBlock, type Service } from "@/components/site/ServiceBlock";
+import { Reveal } from "@/components/ui/Reveal";
 import { CTA } from "@/components/ui/CTA";
 import { pageMetadata } from "@/lib/seo/metadata";
 import { whatsappIntentLink } from "@/lib/whatsapp";
@@ -143,7 +144,9 @@ export default function OdontologiaPage() {
         <div className="flex flex-col gap-14">
           {SERVICES.map((service, i) => (
             <div key={service.id} className={i > 0 ? "border-t border-ink/10 pt-14" : ""}>
-              <ServiceBlock service={service} />
+              <Reveal>
+                <ServiceBlock service={service} />
+              </Reveal>
             </div>
           ))}
         </div>

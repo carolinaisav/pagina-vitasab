@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/site/PageLayout";
+import { Reveal } from "@/components/ui/Reveal";
 import { CTA } from "@/components/ui/CTA";
 import { whatsappIntentLink } from "@/lib/whatsapp";
 import { pageMetadata } from "@/lib/seo/metadata";
@@ -38,7 +39,7 @@ export default function AlianzasPage() {
     >
       <div className="grid gap-5 sm:grid-cols-2">
         {CATEGORIES.map((c) => (
-          <div
+          <Reveal
             key={c.title}
             className="rounded-[2rem] border border-accent/25 bg-sand p-8"
           >
@@ -56,7 +57,7 @@ export default function AlianzasPage() {
                 ))}
               </ul>
             ) : null}
-          </div>
+          </Reveal>
         ))}
       </div>
 

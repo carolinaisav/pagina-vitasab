@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageLayout } from "@/components/site/PageLayout";
+import { Reveal } from "@/components/ui/Reveal";
 import { pageMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = pageMetadata({
@@ -21,19 +22,21 @@ export default function ResultadosPage() {
       <ul className="grid gap-8 sm:grid-cols-2">
         {CASOS.map((c, i) => (
           <li key={i}>
-            <figure>
-              <div className="overflow-hidden rounded-[1.5rem] border border-accent/20">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={c.src}
-                  alt={`Caso de ${c.label} — antes y después`}
-                  className="w-full"
-                />
-              </div>
-              <figcaption className="mt-3 text-center font-serif text-base text-ink-soft">
-                {c.label}
-              </figcaption>
-            </figure>
+            <Reveal>
+              <figure>
+                <div className="overflow-hidden rounded-[1.5rem] border border-accent/20">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={c.src}
+                    alt={`Caso de ${c.label} — antes y después`}
+                    className="zoom-hover w-full"
+                  />
+                </div>
+                <figcaption className="mt-3 text-center font-serif text-base text-ink-soft">
+                  {c.label}
+                </figcaption>
+              </figure>
+            </Reveal>
           </li>
         ))}
       </ul>

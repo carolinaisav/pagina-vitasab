@@ -6,6 +6,9 @@ import type { ReactNode } from "react";
  * con un grep antes de producción.
  */
 export function Placeholder({ children }: { readonly children: ReactNode }) {
+  // En producción NO se muestra: evita exponer notas internas de trabajo al público
+  // (§0, §8). En desarrollo sigue visible para que QA detecte lo que falta.
+  if (process.env.NODE_ENV === "production") return null;
   return (
     <span
       data-placeholder
