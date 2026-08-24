@@ -25,6 +25,7 @@ const routes: readonly RouteConfig[] = [
   { path: "/equipo", priority: 0.7, changeFrequency: "monthly" },
   { path: "/primera-visita", priority: 0.7, changeFrequency: "monthly" },
   { path: "/alianzas", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/formas-de-pago", priority: 0.6, changeFrequency: "monthly" },
   { path: "/legales/privacidad", priority: 0.3, changeFrequency: "yearly" },
 ];
 
