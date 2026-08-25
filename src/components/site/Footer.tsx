@@ -10,8 +10,8 @@ const FOOTER_LINKS = [
   { href: "/estetica-facial", label: "Estética Facial" },
   { href: "/resultados", label: "Casos reales" },
   { href: "/equipo", label: "Equipo" },
-  { href: "/primera-visita", label: "Primera visita" },
   { href: "/alianzas", label: "Alianzas" },
+  { href: "/formas-de-pago", label: "Formas de pago" },
 ] as const;
 
 export function Footer() {

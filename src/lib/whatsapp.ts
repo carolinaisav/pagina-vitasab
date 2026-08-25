@@ -13,7 +13,6 @@ export const WHATSAPP_NUMBER = "56966682941";
 /** Intenciones pre-escritas. Nunca piden datos de salud por el canal (§6.4 regla 12). */
 export const WHATSAPP_INTENTS = {
   agendar: "Hola, me gustaría agendar una hora para una evaluación.",
-  primeraVisita: "Hola, quiero agendar mi primera consulta.",
   urgencia: "Hola, tengo una urgencia dental y necesito orientación.",
   convenios: "Hola, quisiera consultar por convenios y formas de pago.",
 } as const;

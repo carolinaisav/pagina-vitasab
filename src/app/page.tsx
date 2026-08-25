@@ -34,11 +34,6 @@ const AREAS = [
 
 const HIGHLIGHTS = [
   {
-    href: "/primera-visita",
-    title: "Tu primera visita",
-    blurb: "Una evaluación integral de tu salud bucal y un plan de tratamiento personalizado.",
-  },
-  {
     href: "/equipo",
     title: "Conoce al equipo",
     blurb: "Conoce a los profesionales que te atienden.",
@@ -133,9 +128,6 @@ export default function Home() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <CTA href={wa} variant="primary">
                   Agendar Cita
-                </CTA>
-                <CTA href="/primera-visita" variant="secondary">
-                  Cómo es tu primera visita
                 </CTA>
               </div>
               <p className="mt-4 max-w-md text-caption text-ink-soft">
@@ -246,6 +238,15 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+
+                <div className="mt-12">
+                  <Link
+                    href="/formas-de-pago"
+                    className="inline-flex items-center gap-1 font-serif text-lead text-accent underline-offset-4 hover:underline"
+                  >
+                    Conoce nuestras formas de pago <span aria-hidden>→</span>
+                  </Link>
+                </div>
               </div>
             </Container>
           </Reveal>
@@ -319,7 +320,7 @@ export default function Home() {
         <section className="mt-20 sm:mt-32">
           <Reveal>
             <Container>
-              <div className="mx-auto grid max-w-4xl gap-5 sm:grid-cols-2">
+              <div className="mx-auto grid max-w-md gap-5">
                 {HIGHLIGHTS.map((h) => (
                   <CardLink key={h.href} href={h.href} title={h.title} blurb={h.blurb} centered />
                 ))}

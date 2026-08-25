@@ -23,7 +23,6 @@ const routes: readonly RouteConfig[] = [
   { path: "/estetica-facial", priority: 0.9, changeFrequency: "monthly" },
   { path: "/resultados", priority: 0.8, changeFrequency: "monthly" },
   { path: "/equipo", priority: 0.7, changeFrequency: "monthly" },
-  { path: "/primera-visita", priority: 0.7, changeFrequency: "monthly" },
   { path: "/alianzas", priority: 0.6, changeFrequency: "monthly" },
   { path: "/formas-de-pago", priority: 0.6, changeFrequency: "monthly" },
   { path: "/legales/privacidad", priority: 0.3, changeFrequency: "yearly" },

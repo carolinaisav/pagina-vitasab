@@ -13,13 +13,11 @@ const NAV = [
   { href: "/resultados", label: "Casos reales" },
   { href: "/estetica-facial", label: "Estética Facial" },
   { href: "/equipo", label: "Equipo" },
-  { href: "/primera-visita", label: "Primera Visita" },
   { href: "/alianzas", label: "Alianzas" },
-  { href: "/formas-de-pago", label: "Formas de pago" },
   { href: "/#contacto", label: "Contacto" },
 ] as const;
 
-const NAV_LINK = "font-serif text-[0.875rem] tracking-[0.01em] transition-colors";
+const NAV_LINK = "font-serif text-[0.9375rem] tracking-[0.02em] transition-colors";
 
 /**
  * Header sticky: logo + navegación repartida + botón "Agendar hora". Marca la página
@@ -58,7 +56,7 @@ export function Header() {
 
         <nav
           aria-label="Navegación principal"
-          className="hidden flex-1 items-center justify-between gap-x-3 xl:flex"
+          className="hidden flex-1 items-center justify-between gap-x-5 min-[1100px]:flex"
         >
           {NAV.map((item) => {
             const active = isActive(item.href);
@@ -75,11 +73,11 @@ export function Header() {
           })}
         </nav>
 
-        <CTA href={wa} variant="primary" className="hidden shrink-0 xl:inline-flex">
+        <CTA href={wa} variant="primary" className="hidden shrink-0 min-[1100px]:inline-flex">
           Agendar hora
         </CTA>
 
-        <details ref={menuRef} className="relative ml-auto xl:hidden">
+        <details ref={menuRef} className="relative ml-auto min-[1100px]:hidden">
           <summary
             aria-label="Menú"
             className="tap-target cursor-pointer list-none rounded-md text-ink transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 [&::-webkit-details-marker]:hidden"
